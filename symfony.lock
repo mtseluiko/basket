@@ -65,6 +65,9 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
+    "fzaninotto/faker": {
+        "version": "v1.8.0"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -88,6 +91,9 @@
     },
     "psr/simple-cache": {
         "version": "1.0.1"
+    },
+    "ramsey/uuid": {
+        "version": "3.8.0"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
@@ -169,6 +175,15 @@
     },
     "symfony/orm-pack": {
         "version": "v1.0.5"
+    },
+    "symfony/phpunit-bridge": {
+        "version": "4.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.1",
+            "ref": "e637a1337f5faf0b2529b1c9a47de5e8286679f0"
+        }
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.10.0"
