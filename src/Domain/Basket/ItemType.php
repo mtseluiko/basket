@@ -13,39 +13,38 @@ use App\Domain\Basket\Exceptions\ItemIncorrectTypeException;
 
 class ItemType
 {
-    private $type;
+    private $typeName;
 
-    private const APPLE_ITEM_TYPE = 'apple';
-    private const ORANGE_ITEM_TYPE = 'orange';
-    private const WATERMELON_ITEM_TYPE = 'watermelon';
+    const APPLE_ITEM_TYPE = 'apple';
+    const ORANGE_ITEM_TYPE = 'orange';
+    const WATERMELON_ITEM_TYPE = 'watermelon';
 
-    public function __construct(string $type)
+    public function __construct(string $typeName)
     {
-        if(
-            $type !== self::APPLE_ITEM_TYPE &&
-            $type !== self::ORANGE_ITEM_TYPE &&
-            $type !== self::WATERMELON_ITEM_TYPE
-        )
-        {
+        if (
+            $typeName !== self::APPLE_ITEM_TYPE &&
+            $typeName !== self::ORANGE_ITEM_TYPE &&
+            $typeName !== self::WATERMELON_ITEM_TYPE
+        ) {
             throw new ItemIncorrectTypeException;
         }
 
 
-        $this->type = $type;
+        $this->typeName = $typeName;
     }
 
     public function sameValueAs(self $otherItemType): bool
     {
-        return $this->type() === $otherItemType->type();
+        return $this->typeName() === $otherItemType->typeName();
     }
 
-    public function type()
+    public function typeName(): string
     {
-        return $this->type;
+        return $this->typeName;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
-        return $this->type;
+        return $this->typeName;
     }
 }

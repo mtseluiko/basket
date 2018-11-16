@@ -9,9 +9,9 @@
 namespace App\Domain\Basket\Exceptions;
 
 
-class BasketNegativeCapacityException extends \DomainException
+class BasketOverflowException extends \DomainException
 {
-    private const ERROR_MSG = 'Basket capacity must be positive number';
+    private const ERROR_MSG = 'Can\'t add item: basket overflow';
 
     public function __construct(string $message = self::ERROR_MSG)
     {

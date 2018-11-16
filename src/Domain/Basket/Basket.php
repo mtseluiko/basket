@@ -9,12 +9,14 @@
 namespace App\Domain\Basket;
 
 
+use App\Domain\Basket\Exceptions\BasketOverflowException;
+
+
 class Basket
 {
     private $id;
     private $name;
     private $maxCapacity;
-    /* @var $contents Item[] */
     private $contents;
 
     public function __construct(BasketId $id, BasketName $name, Weight $maxCapacity)
@@ -22,6 +24,7 @@ class Basket
         $this->id = $id;
         $this->name = $name;
         $this->maxCapacity = $maxCapacity;
+        $this->contents = new BasketContents;
     }
 
     public function id(): BasketId
@@ -39,7 +42,7 @@ class Basket
         return $this->maxCapacity;
     }
 
-    public function contents(): array
+    public function contents(): BasketContents
     {
         return $this->contents;
     }
@@ -49,18 +52,38 @@ class Basket
         $totalWeight = new Weight;
 
         /* @var $item Item */
-        foreach ($this->contents as $item) {
+        foreach ($this->contents()->items() as $item) {
             $totalWeight = $totalWeight->add($item->weight());
         }
 
         return $totalWeight;
     }
 
+    public function rename(BasketName $name): void
+    {
+        $this->name = $name;
+    }
+
     public function canAddItem(Item $item): bool
     {
         $weightWithItem = $this->currentWeight()->add($item->weight());
 
-        return $weightWithItem->weight() <= $this->currentWeight()->weight();
+        return $weightWithItem->weight() <= $this->maxCapacity()->weight();
     }
+
+    public function addItem(Item $item): void
+    {
+        if (!$this->canAddItem($item)) {
+            throw new BasketOverflowException;
+        }
+
+        $this->contents = $this->contents()->addItem($item);
+    }
+
+    public function removeItem(Item $item): void
+    {
+        $this->contents = $this->contents()->removeItem($item);
+    }
+
 
 }

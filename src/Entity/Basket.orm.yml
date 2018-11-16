@@ -1,0 +1,25 @@
+App\Domain\Basket:
+  type: entity
+  # repositoryClass: App\Infrastructure\DoctrineBasketRepository
+  table: baskets
+  id:
+    id:
+      type: basket_id
+      generator:
+        strategy: none
+    embedded:
+      name:
+        class: App\Domain\Basket\BasketName
+        columnPrefix: false
+      max_capacity:
+        class: App\Domain\Basket\Weight
+        columnPrefix: false
+    fields:
+      createdAt:
+        type: datetime
+        nullable: false
+        column: created_at
+      updatedAt:
+        type: datetime
+        nullable: false
+        column: updated_at

@@ -30,4 +30,14 @@ class Item
         return $this->weight;
     }
 
+    public function addWeight(Weight $weight): Item
+    {
+        return new self($this->type, $this->weight()->add($weight));
+    }
+
+    public function subtractWeight(Weight $weight): Item
+    {
+        return new self($this->type, $this->weight()->subtract($weight));
+    }
+
 }

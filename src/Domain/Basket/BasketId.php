@@ -9,6 +9,7 @@
 namespace App\Domain\Basket;
 
 
+use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
 class BasketId
@@ -32,12 +33,22 @@ class BasketId
 
     public function id(): string
     {
-        return $this->id->toString();
+        return $this->id;
     }
 
     public function sameValueAs(self $otherId): bool
     {
         return $this->id() === $otherId->id();
+    }
+
+    public static function generate(): BasketId
+    {
+        return new self(Uuid::uuid4());
+    }
+
+    public static function fromString(string $basketId): BasketId
+    {
+        return new self(Uuid::fromString($basketId));
     }
 }
 
