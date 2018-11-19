@@ -28,8 +28,8 @@ class BasketName
         }
 
         if (
-            strlen($name) < self::BASKET_NAME_MIN_LENGTH ||
-            strlen($name) > self::BASKET_NAME_MAX_LENGTH
+            $nameLength < self::BASKET_NAME_MIN_LENGTH ||
+            $nameLength > self::BASKET_NAME_MAX_LENGTH
         ) {
             throw new BasketNameIncorrectLengthException;
         }
