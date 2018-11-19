@@ -10,7 +10,7 @@ namespace App\Application\Actions\GetBasketAction;
 
 
 use App\Domain\Basket\BasketRepositoryContract;
-use App\Domain\Basket\Exceptions\BasketDoesNotExistsException;
+use App\Application\Exceptions\BasketDoesNotExistsException;
 
 class GetBasketAction
 {
@@ -21,7 +21,7 @@ class GetBasketAction
         $this->basketRepository = $basketRepository;
     }
 
-    public function execute(RenameBasketRequest $basketRequest): RenameBasketResponse
+    public function execute(GetBasketRequest $basketRequest): GetBasketResponse
     {
         $basketId = $basketRequest->basketId();
         $basket = $this->basketRepository->get($basketId);
@@ -30,7 +30,7 @@ class GetBasketAction
             throw new BasketDoesNotExistsException;
         }
 
-        return new RenameBasketResponse($basket);
+        return new GetBasketResponse($basket);
 
     }
 }

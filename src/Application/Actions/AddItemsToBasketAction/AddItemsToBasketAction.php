@@ -10,6 +10,7 @@ namespace App\Application\Actions\AddItemsToBasketAction;
 
 
 use App\Application\Dto\ItemRequestDto;
+use App\Application\Exceptions\BasketDoesNotExistsException;
 use App\Domain\Basket\BasketRepositoryContract;
 use App\Domain\Basket\Item;
 use App\Domain\Basket\Weight;
@@ -28,6 +29,10 @@ class AddItemsToBasketAction
         $basketId = $basketRequest->basketId();
 
         $basket = $this->basketRepository->get($basketId);
+
+        if ($basket === null) {
+            throw new BasketDoesNotExistsException;
+        }
 
         $items = $basketRequest->items();
 
