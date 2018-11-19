@@ -11,6 +11,9 @@ doctrine:
         driver: 'pdo_mysql'
         server_version: '5.7'
         charset: utf8mb4
+        types:
+            uuid: Ramsey\Uuid\Doctrine\UuidType
+            basket_contents: App\Infrastructure\Types\BasketContentsType
         default_table_options:
             charset: utf8mb4
             collate: utf8mb4_unicode_ci
@@ -23,7 +26,7 @@ doctrine:
         mappings:
             App:
                 is_bundle: false
-                type: annotation
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
+                type: yml
+                dir: '%kernel.project_dir%/config/doctrine/mapping/Basket'
+                prefix: 'App\Domain\Basket'
                 alias: App

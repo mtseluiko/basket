@@ -8,20 +8,25 @@
 
 namespace App\Domain\Basket;
 
-
+use Doctrine\Common\Collections\ArrayCollection;
 use App\Domain\Basket\Exceptions\BasketContentsRemoveMoreItemsThanExistsException;
 
 class BasketContents
 {
-    /* @var $items Item[] */
-    private $items = [];
+    /* @var ArrayCollection */
+    private $items;
+
+    public function __construct()
+    {
+        $this->items = new ArrayCollection([]);
+    }
 
     public function sameValueAs(self $otherItems): bool
     {
         return $this->items() == $otherItems->items();
     }
 
-    public function items(): array
+    public function items(): ArrayCollection
     {
         return $this->items;
     }

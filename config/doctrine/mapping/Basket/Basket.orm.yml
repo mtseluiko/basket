@@ -1,0 +1,24 @@
+App\Domain\Basket\Basket:
+  type: entity
+  table: baskets
+  repositoryClass: App\Infrastructure\DoctrineBasketRepository
+  id:
+    id:
+      type: uuid
+      generator:
+        strategy: CUSTOM
+      customIdGenerator:
+        class: Ramsey\Uuid\Doctrine\UuidGenerator
+
+  embedded:
+    name:
+      class: App\Domain\Basket\BasketName
+      columnPrefix: false
+    maxCapacity:
+      class: App\Domain\Basket\Weight
+      columnPrefix: false
+
+  fields:
+    contents:
+      type: basket_contents
+      nullable: true

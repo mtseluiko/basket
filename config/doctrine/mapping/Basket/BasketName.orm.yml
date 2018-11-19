@@ -1,0 +1,6 @@
+App\Domain\Basket\BasketName:
+  type: embeddable
+  fields:
+    name:
+      type: string
+      nullable: false

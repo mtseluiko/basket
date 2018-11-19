@@ -1,6 +1,6 @@
 index:
   path: /
-  controller: App\Controller\DefaultController::index
+  controller: App\Http\Controller\DefaultController::index
 add:
   path: /add
-  controller: App\Controller\DefaultController::exampleAdd
+  controller: App\Http\Controller\DefaultController::exampleAdd

@@ -66,7 +66,12 @@ class Basket
 
     public function canAddItem(Item $item): bool
     {
-        $weightWithItem = $this->currentWeight()->add($item->weight());
+        return $this->canAddWeight($item->weight());
+    }
+
+    public function canAddWeight(Weight $weight): bool
+    {
+        $weightWithItem = $this->currentWeight()->add($weight);
 
         return $weightWithItem->weight() <= $this->maxCapacity()->weight();
     }

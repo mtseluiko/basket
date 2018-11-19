@@ -15,7 +15,7 @@ class Weight
 {
     const EPSILON = 0.001; //float calculation precision
 
-    private $value;
+    private $weight;
 
     public function __construct(float $value = 0)
     {
@@ -23,7 +23,7 @@ class Weight
             throw new NegativeWeightException;
         }
 
-        $this->value = $value;
+        $this->weight = $value;
     }
 
     public function sameValueAs(self $otherWeight): bool
@@ -33,12 +33,12 @@ class Weight
 
     public function weight(): float
     {
-        return $this->value;
+        return $this->weight;
     }
 
     public function __toString(): string
     {
-        return strval($this->value);
+        return strval($this->weight);
     }
 
     public function add(self $weight): self

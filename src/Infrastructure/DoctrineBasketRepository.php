@@ -12,7 +12,6 @@ namespace App\Infrastructure;
 use App\Domain\Basket\Basket;
 use App\Domain\Basket\BasketId;
 use App\Domain\Basket\BasketRepositoryContract;
-use Doctrine\ORM\EntityRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 

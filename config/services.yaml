@@ -22,13 +22,13 @@ services:
 
   # controllers are imported separately to make sure services can be injected
   # as action arguments even if you don't extend any base controller class
-  App\Controller\:
-    resource: '../src/Controller'
+  App\Http\Controller\:
+    resource: '../src/Http/Controller'
     tags: ['controller.service_arguments']
 
   # add more service definitions when explicit configuration is needed
   # please note that last definitions always *replace* previous ones
 
-  # App\Domain\BasketRepositoryContract:
-  #   class: App\Infrastructure\DoctrineBasketRepository
-  #   autowire: true
+  App\Domain\BasketRepositoryContract:
+    class: App\Infrastructure\DoctrineBasketRepository
+    autowire: true

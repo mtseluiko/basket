@@ -1,0 +1,6 @@
+App\Domain\Basket\Weight:
+  type: embeddable
+  fields:
+    weight:
+      type: string
+      nullable: false
