@@ -30,6 +30,7 @@ class RenameBasketAction
             throw new BasketDoesNotExistsException;
         }
 
+
         $basket->rename($basketRequest->newName());
 
         $this->basketRepository->store($basket);

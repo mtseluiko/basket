@@ -9,6 +9,7 @@
 namespace App\Domain\Basket;
 
 
+use App\Domain\Basket\Exceptions\BasketContentsRemoveMoreItemsThanExistsException;
 use App\Domain\Basket\Exceptions\BasketOverflowException;
 
 
@@ -24,7 +25,7 @@ class Basket
         $this->id = $id;
         $this->name = $name;
         $this->maxCapacity = $maxCapacity;
-        $this->contents = new BasketContents;
+        $this->contents = [];
     }
 
     public function id(): BasketId
@@ -42,7 +43,7 @@ class Basket
         return $this->maxCapacity;
     }
 
-    public function contents(): BasketContents
+    public function contents(): array
     {
         return $this->contents;
     }
@@ -52,7 +53,7 @@ class Basket
         $totalWeight = new Weight;
 
         /* @var $item Item */
-        foreach ($this->contents()->items() as $item) {
+        foreach ($this->contents() as $item) {
             $totalWeight = $totalWeight->add($item->weight());
         }
 
@@ -64,31 +65,73 @@ class Basket
         $this->name = $name;
     }
 
-    public function canAddItem(Item $item): bool
+    private function canAddItem(Item $item): bool
     {
         return $this->canAddWeight($item->weight());
     }
 
-    public function canAddWeight(Weight $weight): bool
+    private function canAddWeight(Weight $weight): bool
     {
         $weightWithItem = $this->currentWeight()->add($weight);
 
         return $weightWithItem->weight() <= $this->maxCapacity()->weight();
     }
 
-    public function addItem(Item $item): void
+    private function hasItemWithType(ItemType $type): bool
     {
+        $typeName = $type->typeName();
+
+        if (isset($this->contents()[$typeName])) {
+            $item = $this->contents()[$typeName];
+            return !$item->weight()->isZero();
+        }
+
+        return false;
+    }
+
+    public function addItem(string $itemType, float $weight): void
+    {
+        $item = new Item(
+            new ItemType($itemType),
+            new Weight($weight)
+        );
+
         if (!$this->canAddItem($item)) {
             throw new BasketOverflowException;
         }
 
-        $this->contents = $this->contents()->addItem($item);
+        $currentItems = $this->contents();
+        $itemTypeName = $item->type()->typeName();
+
+        if ($this->hasItemWithType($item->type())) {
+            $currentItems[$itemTypeName] = $currentItems[$itemTypeName]->addWeight($item->weight());
+        } else {
+            $currentItems[$itemTypeName] = $item;
+        }
+
+        $this->contents = $currentItems;
+
     }
 
-    public function removeItem(Item $item): void
+    public function removeItem(string $itemType, float $weight): void
     {
-        $this->contents = $this->contents()->removeItem($item);
+        $item = new Item(
+            new ItemType($itemType),
+            new Weight($weight)
+        );
+
+        $currentItems = $this->contents();
+        $itemTypeName = $item->type()->typeName();
+
+        if (
+            $this->hasItemWithType($item->type()) &&
+            $currentItems[$itemTypeName]->weight()->weight() > $item->weight()->weight()
+        ) {
+            $currentItems[$itemTypeName] = $currentItems[$itemTypeName]->subtractWeight($item->weight());
+        } else {
+            throw new BasketContentsRemoveMoreItemsThanExistsException;
+        }
+
+        $this->contents = $currentItems;
     }
-
-
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controller;
 
 use App\Application\Actions\AddItemsToBasketAction\AddItemsToBasketAction;
 use App\Application\Actions\AddItemsToBasketAction\AddItemsToBasketRequest;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -29,6 +30,6 @@ class DefaultController
             new AddItemsToBasketRequest($requestParams)
         );
 
-        return new Response($response->basket()->name());
+        return new JsonResponse($response->basket()->name());
     }
 }

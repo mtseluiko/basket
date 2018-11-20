@@ -9,7 +9,6 @@
 namespace App\Application\Actions\AddItemsToBasketAction;
 
 
-use App\Application\Dto\ItemRequestDto;
 use App\Domain\Basket\BasketId;
 use App\Domain\Basket\ItemType;
 use App\Domain\Basket\Weight;

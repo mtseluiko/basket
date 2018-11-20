@@ -6,7 +6,7 @@
  * Time: 15:46
  */
 
-namespace App\Application\Dto;
+namespace App\Application\Actions\AddItemsToBasketAction;
 
 
 use App\Domain\Basket\ItemType;

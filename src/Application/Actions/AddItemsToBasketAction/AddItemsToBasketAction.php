@@ -9,11 +9,9 @@
 namespace App\Application\Actions\AddItemsToBasketAction;
 
 
-use App\Application\Dto\ItemRequestDto;
 use App\Application\Exceptions\BasketDoesNotExistsException;
 use App\Domain\Basket\BasketRepositoryContract;
 use App\Domain\Basket\Item;
-use App\Domain\Basket\Weight;
 
 class AddItemsToBasketAction
 {
@@ -36,31 +34,18 @@ class AddItemsToBasketAction
 
         $items = $basketRequest->items();
 
-        if ($basket->canAddWeight($this->totalWeight($items))) {
-
-            foreach ($items as $item) {
-                /* @var $item ItemRequestDto */
-                $itemType = $item->itemType();
-                $weight = $item->weight();
-                $basket->addItem(
-                    new Item($itemType, $weight)
-                );
-            }
+        foreach ($items as $item) {
+            /* @var $item ItemRequestDto */
+            $itemType = $item->itemType();
+            $weight = $item->weight();
+            $basket->addItem(
+                new Item($itemType, $weight)
+            );
         }
 
         $this->basketRepository->store($basket);
 
         return new AddItemsToBasketResponse($basket);
 
-    }
-
-    private function totalWeight(array $items): Weight
-    {
-        $total = new Weight;
-        foreach ($items as $item) {
-            /* @var $item ItemRequestDto */
-            $total->add($item->weight());
-        }
-        return $total;
     }
 }
