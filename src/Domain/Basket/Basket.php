@@ -84,7 +84,7 @@ class Basket
         return false;
     }
 
-    public function addItem(string $itemTypeName, ?float $weightValue): void
+    public function addItem(string $itemTypeName, float $weightValue): void
     {
         $itemType = new ItemType($itemTypeName);
         $weight = new Weight($weightValue);
