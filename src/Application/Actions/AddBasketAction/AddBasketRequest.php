@@ -9,7 +9,6 @@
 namespace App\Application\Actions\AddBasketAction;
 
 
-use App\Domain\Basket\BasketId;
 use App\Domain\Basket\BasketName;
 use App\Domain\Basket\Weight;
 

@@ -19,4 +19,6 @@ interface BasketRepositoryContract
 
     public function getNextId(): BasketId;
 
+    public function remove(BasketId $basketId): void;
+
 }

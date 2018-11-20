@@ -11,7 +11,6 @@ namespace App\Application\Actions\AddItemsToBasketAction;
 
 use App\Application\Exceptions\BasketDoesNotExistsException;
 use App\Domain\Basket\BasketRepositoryContract;
-use App\Domain\Basket\Item;
 
 class AddItemsToBasketAction
 {
@@ -38,9 +37,7 @@ class AddItemsToBasketAction
             /* @var $item ItemRequestDto */
             $itemType = $item->itemType();
             $weight = $item->weight();
-            $basket->addItem(
-                new Item($itemType, $weight)
-            );
+            $basket->addItem($itemType, $weight);
         }
 
         $this->basketRepository->store($basket);

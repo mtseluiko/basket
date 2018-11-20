@@ -10,8 +10,6 @@ namespace App\Application\Actions\AddItemsToBasketAction;
 
 
 use App\Domain\Basket\BasketId;
-use App\Domain\Basket\ItemType;
-use App\Domain\Basket\Weight;
 
 class AddItemsToBasketRequest
 {
@@ -24,8 +22,8 @@ class AddItemsToBasketRequest
         $items = [];
         foreach($params->items as $rawItem) {
             $items[] = new ItemRequestDto(
-                new ItemType($rawItem->type),
-                new Weight($rawItem->weight)
+                $rawItem->type,
+                $rawItem->weight
             );
         }
 

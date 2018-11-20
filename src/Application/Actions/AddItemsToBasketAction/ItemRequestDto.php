@@ -9,26 +9,23 @@
 namespace App\Application\Actions\AddItemsToBasketAction;
 
 
-use App\Domain\Basket\ItemType;
-use App\Domain\Basket\Weight;
-
 class ItemRequestDto
 {
     private $itemType;
     private $weight;
 
-    public function __construct(ItemType $itemType, Weight $weight)
+    public function __construct(string $itemType, float $weight)
     {
         $this->itemType = $itemType;
         $this->weight = $weight;
     }
 
-    public function itemType(): ItemType
+    public function itemType(): string
     {
         return $this->itemType;
     }
 
-    public function weight(): Weight
+    public function weight(): float
     {
         return $this->weight;
     }
