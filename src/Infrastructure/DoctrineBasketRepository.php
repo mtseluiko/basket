@@ -40,9 +40,8 @@ class DoctrineBasketRepository extends ServiceEntityRepository
         $this->getEntityManager()->flush($basket);
     }
 
-    public function remove(BasketId $basketId): void
+    public function remove(Basket $basket): void
     {
-        $basket = $this->get($basketId);
         $this->getEntityManager()->remove($basket);
         $this->getEntityManager()->flush();
     }

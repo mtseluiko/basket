@@ -24,7 +24,7 @@ class RemoveBasketAction
             throw new BasketDoesNotExistsException;
         }
 
-        $this->basketRepository->remove($basketId);
+        $this->basketRepository->remove($basket);
 
         return new RemoveBasketResponse($basket);
 
