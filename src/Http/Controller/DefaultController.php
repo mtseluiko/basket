@@ -3,7 +3,6 @@
 namespace App\Http\Controller;
 
 use App\Application\Actions\AddItemsToBasketAction\AddItemsToBasketAction;
-use App\Application\Actions\AddItemsToBasketAction\AddItemsToBasketResponse;
 use App\Application\Actions\AddItemsToBasketAction\AddItemsToBasketRequest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
