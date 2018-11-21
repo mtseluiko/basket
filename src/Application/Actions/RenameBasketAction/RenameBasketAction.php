@@ -9,7 +9,7 @@
 namespace App\Application\Actions\RenameBasketAction;
 
 
-use App\Application\Exceptions\BasketDoesNotExistsException;
+use App\Domain\Basket\Exceptions\BasketDoesNotExistsException;
 use App\Domain\Basket\BasketRepositoryContract;
 
 class RenameBasketAction

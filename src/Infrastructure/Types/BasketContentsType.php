@@ -32,12 +32,15 @@ class BasketContentsType extends Type
         $val = json_decode($value, true);
 
         foreach ($val as $basketItem) {
+            if(count($basketItem) === 0) {
+                continue;
+            }
             $item = new Item(
                 new ItemType($basketItem['type']),
                 new Weight($basketItem['weight'])
             );
 
-            $basketContents[] = $item;
+            $basketContents[$basketItem['type']] = $item;
         }
 
         return $basketContents;
@@ -45,8 +48,6 @@ class BasketContentsType extends Type
 
     public function convertToDatabaseValue($items, AbstractPlatform $platform)
     {
-
-        $items = [];
         foreach ($items as $item) {
             /* @var $item Item */
             $items[] = [

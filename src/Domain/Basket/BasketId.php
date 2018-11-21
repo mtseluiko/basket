@@ -9,6 +9,8 @@
 namespace App\Domain\Basket;
 
 
+use App\Domain\Basket\Exceptions\InvalidBasketIdException;
+use Ramsey\Uuid\Exception\InvalidUuidStringException;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
@@ -16,7 +18,7 @@ class BasketId
 {
     protected $id;
 
-    public function __construct(UuidInterface $uuid)
+    private function __construct(UuidInterface $uuid)
     {
         $this->id = $uuid;
     }
@@ -48,7 +50,12 @@ class BasketId
 
     public static function fromString(string $basketId): BasketId
     {
-        return new self(Uuid::fromString($basketId));
+        try {
+            $uuid = Uuid::fromString($basketId);
+        } catch (InvalidUuidStringException $e) {
+            throw new InvalidBasketIdException;
+        }
+        return new self($uuid);
     }
 }
 

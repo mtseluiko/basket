@@ -9,7 +9,7 @@
 namespace App\Application\Actions\RemoveItemsFromBasketAction;
 
 
-use App\Application\Exceptions\BasketDoesNotExistsException;
+use App\Domain\Basket\Exceptions\BasketDoesNotExistsException;
 use App\Domain\Basket\BasketRepositoryContract;
 
 class RemoveItemsFromBasketAction
@@ -37,7 +37,12 @@ class RemoveItemsFromBasketAction
             /* @var $item ItemRequestDto */
             $itemType = $item->itemType();
             $weight = $item->weight();
-            $basket->removeItem($itemType, $weight);
+            if($weight === null) {
+                $basket->removeAllItemsByType($itemType);
+            } else {
+                $basket->removeItem($itemType, $weight);
+            }
+
         }
 
         $this->basketRepository->store($basket);

@@ -19,8 +19,8 @@ class BasketIdTest extends TestCase
     {
         $uuid = Uuid::uuid4();
 
-        $basketId1 = new BasketId($uuid);
-        $basketId2 = new BasketId($uuid);
+        $basketId1 = BasketId::fromString($uuid);
+        $basketId2 = BasketId::fromString($uuid);
         $this->assertTrue($basketId1->sameValueAs($basketId2));
         $this->assertTrue($basketId2->sameValueAs($basketId1));
     }

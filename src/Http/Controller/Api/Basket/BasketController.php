@@ -13,6 +13,7 @@ use App\Application\Actions\RemoveBasketAction\RemoveBasketRequest;
 use App\Application\Actions\RenameBasketAction\RenameBasketAction;
 use App\Application\Actions\RenameBasketAction\RenameBasketRequest;
 use App\Http\Controller\Api\ApiController;
+use App\Http\Exceptions\RequireAttributeException;
 use App\Infrastructure\UI\BasketPresenter;
 use DomainException;
 use Symfony\Component\HttpFoundation\Request;
@@ -55,9 +56,15 @@ class BasketController extends ApiController
     public function addBasket(Request $request)
     {
         try {
-            $requestParams = json_decode($request->getContent());
-            $name = $requestParams->name;
-            $maxCapacity = $requestParams->maxCapacity;
+            $name = $request->attributes->get('name');
+            if($name === null) {
+                throw new RequireAttributeException('name');
+            }
+
+            $maxCapacity = $request->attributes->get('maxCapacity');
+            if($maxCapacity === null) {
+                throw new RequireAttributeException('maxCapacity');
+            }
 
             $basketResponse = $this->addBasketAction->execute(
                 new AddBasketRequest($name, $maxCapacity)
@@ -140,15 +147,17 @@ class BasketController extends ApiController
      * @Route(
      *     "/baskets/{id}/rename",
      *     name="rename_basket",
-     *     methods={"POST"}
+     *     methods={"PUT"}
      * )
      */
     public function renameBasket(Request $request, string $id)
     {
         try {
-            $requestParams = json_decode($request->getContent());
+            $name = $request->attributes->get('name');
 
-            $name = $requestParams->name;
+            if($name === null) {
+                throw new RequireAttributeException('name');
+            }
 
             $basketResponse = $this->renameBasketAction->execute(
                 new RenameBasketRequest($id, $name)

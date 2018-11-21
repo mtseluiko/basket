@@ -10,7 +10,7 @@ namespace App\Application\Actions\GetBasketAction;
 
 
 use App\Domain\Basket\BasketRepositoryContract;
-use App\Application\Exceptions\BasketDoesNotExistsException;
+use App\Domain\Basket\Exceptions\BasketDoesNotExistsException;
 
 class GetBasketAction
 {

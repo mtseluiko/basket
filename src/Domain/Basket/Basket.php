@@ -98,22 +98,18 @@ class Basket
         if ($this->hasItemWithType($itemType)) {
             $currentItems[$itemTypeName] = $currentItems[$itemTypeName]->addWeight($weight);
         } else {
+
             $currentItems[$itemTypeName] = new Item($itemType, $weight);
         }
 
         $this->contents = $currentItems;
-
     }
 
-    public function removeItem(string $itemTypeName, ?float $weightValue): void
+    public function removeItem(string $itemTypeName, float $weightValue): void
     {
-        if ($weightValue === null) {
-            $this->removeAllItemsByType($itemTypeName);
-        }
         $currentItems = $this->contents();
         $itemType = new ItemType($itemTypeName);
         $weight = new Weight($weightValue);
-
         if (
             $this->hasItemWithType($itemType) &&
             $currentItems[$itemTypeName]->weight()->weight() > $weightValue
@@ -126,9 +122,11 @@ class Basket
         $this->contents = $currentItems;
     }
 
-    private function removeAllItemsByType(string $itemTypeName): void
+    public function removeAllItemsByType(string $itemTypeName): void
     {
-        unset($this->contents()[$itemTypeName]);
+        $currentItems = $this->contents();
+        unset($currentItems[$itemTypeName]);
+        $this->contents = $currentItems;
     }
 
 }

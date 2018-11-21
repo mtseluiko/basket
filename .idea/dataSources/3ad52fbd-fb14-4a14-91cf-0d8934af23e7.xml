@@ -920,8 +920,8 @@
     </table>
     <column id="231" parent="230" name="id">
       <Position>1</Position>
-      <Comment>(DC2Type:uuid)</Comment>
-      <DataType>char(36)|0s</DataType>
+      <Comment>(DC2Type:basket_contents)</Comment>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -933,6 +933,7 @@
     </column>
     <column id="233" parent="230" name="contents">
       <Position>3</Position>
+      <Comment>(DC2Type:basket_contents)</Comment>
       <DataType>json|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>

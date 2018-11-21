@@ -26,6 +26,10 @@ abstract class ApiController
 
     protected function errorResponse(string $data, int $statusCode = JsonResponse::HTTP_BAD_REQUEST): JsonResponse
     {
+        if($statusCode === 0) {
+            $statusCode = JsonResponse::HTTP_BAD_REQUEST;
+        }
+
         $errorData = [
             'error' => [
                 'httpStatus' => $statusCode,

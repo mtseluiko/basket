@@ -3,7 +3,7 @@
 namespace App\Application\Actions\RemoveBasketAction;
 
 
-use App\Application\Exceptions\BasketDoesNotExistsException;
+use App\Domain\Basket\Exceptions\BasketDoesNotExistsException;
 use App\Domain\Basket\BasketRepositoryContract;
 
 class RemoveBasketAction

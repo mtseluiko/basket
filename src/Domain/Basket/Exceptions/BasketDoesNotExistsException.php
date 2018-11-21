@@ -6,7 +6,7 @@
  * Time: 11:30
  */
 
-namespace App\Application\Exceptions;
+namespace App\Domain\Basket\Exceptions;
 
 
 use Symfony\Component\HttpFoundation\Response;

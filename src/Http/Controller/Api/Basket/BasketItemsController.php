@@ -10,6 +10,8 @@ use App\Http\Controller\Api\ApiController;
 use App\Infrastructure\UI\BasketPresenter;
 use DomainException;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+
 
 class BasketItemsController extends ApiController
 {
@@ -28,13 +30,20 @@ class BasketItemsController extends ApiController
         $this->basketPresenter = $basketPresenter;
     }
 
-    public function addItemsToBasket(Request $request)
+    /**
+     * @Route(
+     *     "/baskets/{id}/add",
+     *     name="add_items_basket",
+     *     methods={"PUT"}
+     * )
+     */
+    public function addItemsToBasket(Request $request, string $id)
     {
         try {
-            $requestParams = json_decode($request->getContent());
+            $items = $request->attributes->get('items');
 
             $response = $this->addItemsToBasketAction->execute(
-                new AddItemsToBasketRequest($requestParams)
+                new AddItemsToBasketRequest($id, $items)
             );
 
             return $this->successResponse(
@@ -45,13 +54,20 @@ class BasketItemsController extends ApiController
         }
     }
 
-    public function removeItemsFromBasket(Request $request)
+    /**
+     * @Route(
+     *     "/baskets/{id}/remove",
+     *     name="remove_items_basket",
+     *     methods={"PUT"}
+     * )
+     */
+    public function removeItemsFromBasket(Request $request, string $id)
     {
         try {
-            $requestParams = json_decode($request->getContent());
+            $items = $request->attributes->get('items');
 
             $response = $this->removeItemsFromBasketAction->execute(
-                new RemoveItemsFromBasketRequest($requestParams)
+                new RemoveItemsFromBasketRequest($id, $items)
             );
 
             return $this->successResponse(

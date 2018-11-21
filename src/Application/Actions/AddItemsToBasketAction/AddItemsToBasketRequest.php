@@ -16,14 +16,15 @@ class AddItemsToBasketRequest
     private $basketId;
     private $items;
 
-    public function __construct($params)
+    public function __construct(string $basketId, array $itemsRaw)
     {
-        $this->basketId = BasketId::fromString($params->id);
+        $this->basketId = BasketId::fromString($basketId);
+
         $items = [];
-        foreach($params->items as $rawItem) {
+        foreach($itemsRaw as $rawItem) {
             $items[] = new ItemRequestDto(
-                $rawItem->type,
-                $rawItem->weight
+                $rawItem['type'],
+                $rawItem['weight']
             );
         }
 

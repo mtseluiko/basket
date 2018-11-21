@@ -32,3 +32,7 @@ services:
   App\Domain\BasketRepositoryContract:
     class: App\Infrastructure\DoctrineBasketRepository
     autowire: true
+
+  App\Http\Listeners\JsonRequestListener:
+    tags:
+    - { name: kernel.event_listener, event: kernel.controller }
