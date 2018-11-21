@@ -2,7 +2,6 @@
 
 namespace App\Infrastructure\Types;
 
-use App\Domain\Basket\BasketContents;
 use App\Domain\Basket\Item;
 use App\Domain\Basket\ItemType;
 use App\Domain\Basket\Weight;
@@ -11,7 +10,7 @@ use Doctrine\DBAL\Types\Type;
 
 class BasketContentsType extends Type
 {
-    const TYPE_NAME = 'basket_contents'; // modify to match your type name
+    const TYPE_NAME = 'basket_contents';
 
     public function getSqlDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
@@ -20,7 +19,7 @@ class BasketContentsType extends Type
 
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        $basketContents = new BasketContents;
+        $basketContents = [];
 
         if ($value === null || $value === '') {
             return null;
@@ -38,18 +37,17 @@ class BasketContentsType extends Type
                 new Weight($basketItem['weight'])
             );
 
-            $basketContents->addItem($item);
+            $basketContents[] = $item;
         }
 
         return $basketContents;
     }
 
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue($items, AbstractPlatform $platform)
     {
 
         $items = [];
-        /* @var $value BasketContents */
-        foreach ($value->items() as $item) {
+        foreach ($items as $item) {
             /* @var $item Item */
             $items[] = [
                 'type' => $item->type()->typeName(),

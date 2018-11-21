@@ -4,11 +4,11 @@ App\Domain\Basket\Basket:
   repositoryClass: App\Infrastructure\DoctrineBasketRepository
   id:
     id:
-      type: uuid
+      type: basket_id
       generator:
         strategy: CUSTOM
       customIdGenerator:
-        class: Ramsey\Uuid\Doctrine\UuidGenerator
+        class: App\Infrastructure\BasketIdGenerator
 
   embedded:
     name:

@@ -9,19 +9,7 @@
 namespace App\Application\Actions\RemoveBasketAction;
 
 
-use App\Domain\Basket\Basket;
-
 class RemoveBasketResponse
 {
-    private $basket;
 
-    public function __construct(Basket $basket)
-    {
-        $this->basket = $basket;
-    }
-
-    public function basket(): Basket
-    {
-        return $this->basket;
-    }
 }

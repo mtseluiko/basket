@@ -3,7 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="2d02b190-f72c-456c-b48f-5a0946ab3831" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Http/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/doctrine/mapping/Basket/Basket.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/mapping/Basket/Basket.orm.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Actions/AddBasketAction/AddBasketAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Actions/AddBasketAction/AddBasketAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Exceptions/BasketDoesNotExistsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Exceptions/BasketDoesNotExistsException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Http/Controller/Api/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Controller/Api/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketItemsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketItemsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Types/BasketContentsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Types/BasketContentsType.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,64 +67,64 @@
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="baskets" value="4" />
+          <entry key="baskets" value="5" />
           <entry key="dist" value="6" />
           <entry key="env" value="3" />
           <entry key="gitignore" value="1" />
           <entry key="json" value="6" />
           <entry key="lock" value="3" />
-          <entry key="php" value="276" />
+          <entry key="php" value="304" />
           <entry key="sql" value="1" />
-          <entry key="yaml" value="25" />
-          <entry key="yml" value="11" />
+          <entry key="yaml" value="27" />
+          <entry key="yml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="3" />
-          <entry key="Database Element" value="4" />
+          <entry key="Database Element" value="5" />
           <entry key="JSON" value="7" />
-          <entry key="PHP" value="276" />
+          <entry key="PHP" value="304" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="Scratch" value="1" />
           <entry key="XML" value="6" />
-          <entry key="YAML" value="36" />
+          <entry key="YAML" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cell" value="23" />
           <entry key="dist" value="34" />
-          <entry key="dummy" value="126" />
+          <entry key="dummy" value="174" />
           <entry key="env" value="21" />
           <entry key="json" value="4" />
-          <entry key="php" value="13548" />
-          <entry key="txt" value="110" />
-          <entry key="yaml" value="276" />
-          <entry key="yml" value="389" />
+          <entry key="php" value="14861" />
+          <entry key="txt" value="131" />
+          <entry key="yaml" value="281" />
+          <entry key="yml" value="447" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="21" />
           <entry key="JSON" value="4" />
-          <entry key="PHP" value="13548" />
-          <entry key="PLAIN_TEXT" value="236" />
+          <entry key="PHP" value="14861" />
+          <entry key="PLAIN_TEXT" value="305" />
           <entry key="Scratch" value="23" />
           <entry key="XML" value="34" />
-          <entry key="YAML" value="665" />
+          <entry key="YAML" value="728" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
         <counts>
-          <entry key="PHP Class.type" value="29" />
+          <entry key="PHP Class.type" value="31" />
         </counts>
       </usages-collector>
     </session>
@@ -125,29 +134,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketAction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+            <state relative-caret-position="370">
+              <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Basket/BasketId.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketResponse.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-              <folding>
-                <element signature="e#120#141#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Http/Controller/Api/ApiController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+            <state relative-caret-position="110">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -155,23 +152,61 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+            <state relative-caret-position="282">
+              <caret line="128" column="42" selection-start-line="128" selection-start-column="42" selection-end-line="128" selection-end-column="42" />
               <folding>
-                <element signature="e#39#99#0#PHP" expanded="true" />
+                <element signature="e#50#110#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketItemsController.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketRequest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+            <state relative-caret-position="374">
+              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
               <folding>
-                <element signature="e#39#113#0#PHP" expanded="true" />
+                <element signature="e#6#87#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Types/BasketIdType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+              <folding>
+                <element signature="e#44#75#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/BasketIdGenerator.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+              <folding>
+                <element signature="e#38#69#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/services.yaml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -179,50 +214,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/Exceptions/BasketDoesNotExistsException.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+            <state relative-caret-position="176">
+              <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Http/Controller/DefaultController.php">
+        <entry file="file://$PROJECT_DIR$/config/doctrine/mapping/Basket/Basket.orm.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="32" column="61" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="32" selection-end-column="61" />
-              <folding>
-                <element signature="e#39#113#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Basket/BasketRepositoryContract.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Infrastructure/DoctrineBasketRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="45" column="43" lean-forward="true" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-              <folding>
-                <element signature="e#121#150#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Domain/Basket/BasketIdTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state>
+              <caret column="25" selection-start-column="25" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -244,7 +246,11 @@
       <find>capa</find>
       <find>stat</find>
       <find>removeitem</find>
+      <find>$this-&gt;errorResponse($e-&gt;getMessage())</find>
     </findStrings>
+    <replaceStrings>
+      <replace>$this-&gt;errorResponse($e-&gt;getMessage(), $e-&gt;getCode())</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -252,13 +258,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/packages/routing.yaml" />
-        <option value="$PROJECT_DIR$/config/packages/framework.yaml" />
-        <option value="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" />
-        <option value="$PROJECT_DIR$/config/packages/twig.yaml" />
-        <option value="$PROJECT_DIR$/src/Controller/DefaultController.php" />
-        <option value="$PROJECT_DIR$/config/doctrine/Basket/BasketName.orm.yml" />
-        <option value="$PROJECT_DIR$/config/doctrine/Basket/BasketWeight.orm.yml" />
         <option value="$PROJECT_DIR$/config/doctrine/Basket/Weight.orm.yml" />
         <option value="$PROJECT_DIR$/src/Domain/Basket/Weight.php" />
         <option value="$PROJECT_DIR$/config/doctrine/Basket/Basket.orm.yml" />
@@ -266,27 +265,22 @@
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/Infrastructure/types/BasketContents.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Types/BasketContents.php" />
-        <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
         <option value="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction/AddBasketResponse.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction/AddBasketAction.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction/AddBasketRequest.php" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/config/routes/annotations.yaml" />
         <option value="$PROJECT_DIR$/config/routes.yaml" />
-        <option value="$PROJECT_DIR$/config/doctrine/mapping/Basket/Basket.orm.yml" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Types/BasketContentsType.php" />
         <option value="$PROJECT_DIR$/src/Application/Dto/ItemRequestDto.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/GetBasketAction/GetBasketAction.php" />
         <option value="$PROJECT_DIR$/src/Domain/Basket/BasketContents.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction/AddItemsToBasketResponse.php" />
         <option value="$PROJECT_DIR$/src/Domain/Basket/BasketName.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/RenameBasketAction/RenameBasketAction.php" />
-        <option value="$PROJECT_DIR$/src/Http/Controller/Api/ApiController.php" />
         <option value="$PROJECT_DIR$/tests/Domain/Basket/BasketTest.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/AddBasketAction.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/AddBasketRequest.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/AddBasketAction/AddBasketRequest.php" />
-        <option value="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketResponse.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketRequest.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketResponse.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction/AddItemsToBasketAction.php" />
@@ -294,15 +288,27 @@
         <option value="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction/AddItemsToBasketRequest.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketRequest.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/ItemRequestDto.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Basket/Basket.php" />
         <option value="$PROJECT_DIR$/src/Domain/Basket/BasketId.php" />
         <option value="$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketAction.php" />
-        <option value="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketAction.php" />
         <option value="$PROJECT_DIR$/src/Domain/Basket/BasketRepositoryContract.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/DoctrineBasketRepository.php" />
         <option value="$PROJECT_DIR$/src/Http/Controller/DefaultController.php" />
-        <option value="$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketController.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/UI/BasketContentsPresenter.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/UI/ItemPresenter.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/UI/BasketPresenter.php" />
+        <option value="$PROJECT_DIR$/src/Application/Actions/AddBasketAction/AddBasketAction.php" />
+        <option value="$PROJECT_DIR$/src/Application/Exceptions/BasketDoesNotExistsException.php" />
         <option value="$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketItemsController.php" />
+        <option value="$PROJECT_DIR$/src/Http/Controller/Api/ApiController.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Basket/Basket.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/BasketIdGenerator.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Types/BasketContentsType.php" />
+        <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Types/BasketIdType.php" />
+        <option value="$PROJECT_DIR$/config/doctrine/mapping/Basket/Basket.orm.yml" />
+        <option value="$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketController.php" />
+        <option value="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketAction.php" />
+        <option value="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketResponse.php" />
       </list>
     </option>
   </component>
@@ -397,6 +403,38 @@
             <path>
               <item name="basket" type="b2602c69:ProjectViewProjectNode" />
               <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="doctrine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="doctrine" type="462c0819:PsiDirectoryNode" />
+              <item name="mapping" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="doctrine" type="462c0819:PsiDirectoryNode" />
+              <item name="mapping" type="462c0819:PsiDirectoryNode" />
+              <item name="Basket" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -404,13 +442,6 @@
               <item name="basket" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="basket" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Actions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="basket" type="b2602c69:ProjectViewProjectNode" />
@@ -418,6 +449,19 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
               <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Basket" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="basket" type="b2602c69:ProjectViewProjectNode" />
@@ -448,6 +492,19 @@
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
               <item name="Api" type="462c0819:PsiDirectoryNode" />
               <item name="Basket" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="Types" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="basket" type="b2602c69:ProjectViewProjectNode" />
@@ -493,19 +550,19 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Http/Controller/Api/Basket" />
-      <recent name="$PROJECT_DIR$/src/Application/Actions" />
-      <recent name="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction" />
-      <recent name="$PROJECT_DIR$/config/doctrine/Basket" />
-      <recent name="$PROJECT_DIR$/src/Application/Actions/GetBasketAction" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction" />
       <recent name="$PROJECT_DIR$/src/Http" />
       <recent name="$PROJECT_DIR$/src/Infrastructure" />
       <recent name="$PROJECT_DIR$/config/doctrine/mapping" />
       <recent name="$PROJECT_DIR$/src/Domain/Basket/Exceptions" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Infrastructure/Types" />
+      <recent name="$PROJECT_DIR$/src/Infrastructure/UI" />
+      <recent name="$PROJECT_DIR$/src/Http/Controller/Api/Basket" />
+      <recent name="$PROJECT_DIR$/src/Application/Actions" />
+      <recent name="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -535,7 +592,8 @@
       <workItem from="1542351899208" duration="24458000" />
       <workItem from="1542612724214" duration="10337000" />
       <workItem from="1542627752235" duration="12219000" />
-      <workItem from="1542702891719" duration="18215000" />
+      <workItem from="1542702891719" duration="18607000" />
+      <workItem from="1542785718201" duration="8689000" />
     </task>
     <task id="LOCAL-00001" summary="add models">
       <created>1542298421951</created>
@@ -600,11 +658,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542722771993</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add controllers">
+      <created>1542728979904</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1542728979905</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100666000" />
+    <option name="totallyTimeSpent" value="109747000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -619,7 +684,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26342005" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26618704" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -654,146 +719,11 @@
     <MESSAGE value="some code improvement" />
     <MESSAGE value="fix addItemsToBasketAction" />
     <MESSAGE value="fix removeFromBasket" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix removeFromBasket" />
+    <MESSAGE value="add controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="add controllers" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/doctrine/mapping/Basket/BasketName.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/doctrine/mapping/Basket/Basket.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Types/JsonType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="69" column="42" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2178" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/Request.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes/annotations.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/doctrine/mapping/Basket/Weight.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://3ad52fbd-fb14-4a14-91cf-0d8934af23e7/schema/basket/table/baskets">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-          <column-attributes>
-            <column name="contents" languageId="JSON" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Actions/RenameBasketAction/RenameBasketRequest.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Actions/RenameBasketAction/RenameBasketResponse.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Basket/Item.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="16" column="61" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Actions/AddBasketAction/AddBasketAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="34" column="27" lean-forward="true" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Actions/AddBasketAction/AddBasketResponse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Actions/GetBasketListAction/GetBasketListAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Types/BasketContentsType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Actions/RenameBasketAction/RenameBasketAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Basket/BasketContents.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-          <folding>
-            <element signature="e#119#167#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Basket/BasketName.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="e#120#178#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Basket/BasketContents.php" />
     <entry file="file://$PROJECT_DIR$/src/Domain/Basket/Weight.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -845,13 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="354" column="20" selection-start-line="354" selection-start-column="20" selection-end-line="354" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction/AddItemsToBasketResponse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
@@ -890,17 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Basket/Basket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
-          <folding>
-            <element signature="e#6#87#0#PHP" expanded="true" />
-            <element signature="e#120#202#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
@@ -915,70 +827,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding>
-            <element signature="e#6#87#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketResponse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketAction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-128">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#154#214#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Basket/BasketRepositoryContract.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/DoctrineBasketRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="45" column="43" lean-forward="true" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-          <folding>
-            <element signature="e#121#150#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Domain/Basket/BasketIdTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Basket/BasketId.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="e#120#141#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1000,47 +854,275 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Http/Controller/Api/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Exceptions/BasketDoesNotExistsException.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-          <folding>
-            <element signature="e#39#99#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Http/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="32" column="61" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="32" selection-end-column="61" />
+        <state relative-caret-position="616">
+          <caret line="32" column="61" selection-start-line="26" selection-start-column="9" selection-end-line="32" selection-end-column="61" />
           <folding>
             <element signature="e#39#113#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Basket/BasketRepositoryContract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Domain/Basket/BasketIdTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Actions/AddBasketAction/AddBasketResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Actions/AddBasketAction/AddBasketAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+          <folding>
+            <element signature="e#142#171#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/UI/ItemPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketItemsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+        <state relative-caret-position="-246">
+          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
           <folding>
-            <element signature="e#39#113#0#PHP" expanded="true" />
+            <element signature="e#50#124#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Http/Controller/Api/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+          <folding>
+            <element signature="e#126#176#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/DoctrineBasketRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="744">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+          <folding>
+            <element signature="e#121#150#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/UI/BasketPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#42#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Basket/Basket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding>
+            <element signature="e#6#87#0#PHP" expanded="true" />
+            <element signature="e#120#202#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Platforms/AbstractPlatform.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6776">
+          <caret line="374" column="20" selection-start-line="374" selection-start-column="20" selection-end-line="374" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/ramsey/uuid-doctrine/src/UuidGenerator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="15" column="4" selection-end-line="35" />
+          <folding>
+            <element signature="e#478#509#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://3ad52fbd-fb14-4a14-91cf-0d8934af23e7/schema/basket/table/baskets">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://3ad52fbd-fb14-4a14-91cf-0d8934af23e7/schema/basket/table/baskets">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="contents" languageId="JSON" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/doctrine/mapping/Basket/BasketName.orm.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/Id/AbstractIdGenerator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="32" column="59" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/ClassMetadataFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="709" column="54" selection-start-line="709" selection-start-column="43" selection-end-line="709" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Basket/BasketName.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#120#178#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="63" column="17" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Types/StringType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="35" column="54" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Types/BasketContentsType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#44#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Basket/BasketId.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-339">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding>
+            <element signature="e#120#141#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/doctrine/mapping/Basket/Basket.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Exceptions/BasketDoesNotExistsException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Types/BasketIdType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding>
+            <element signature="e#44#75#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/BasketIdGenerator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding>
+            <element signature="e#38#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding>
+            <element signature="e#6#87#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="128" column="42" selection-start-line="128" selection-start-column="42" selection-end-line="128" selection-end-column="42" />
+          <folding>
+            <element signature="e#50#110#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>

@@ -26,7 +26,7 @@ class RemoveBasketAction
 
         $this->basketRepository->remove($basket);
 
-        return new RemoveBasketResponse($basket);
+        return new RemoveBasketResponse;
 
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controller;
+namespace App\Http\Controller\Api\Basket;
 
 use App\Application\Actions\AddBasketAction\AddBasketAction;
 use App\Application\Actions\AddBasketAction\AddBasketRequest;
@@ -13,9 +13,11 @@ use App\Application\Actions\RemoveBasketAction\RemoveBasketRequest;
 use App\Application\Actions\RenameBasketAction\RenameBasketAction;
 use App\Application\Actions\RenameBasketAction\RenameBasketRequest;
 use App\Http\Controller\Api\ApiController;
+use App\Infrastructure\UI\BasketPresenter;
 use DomainException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class BasketController extends ApiController
 {
@@ -24,13 +26,15 @@ class BasketController extends ApiController
     private $getBasketListAction;
     private $removeBasketAction;
     private $renameBasketAction;
+    private $basketPresenter;
 
     public function __construct(
         AddBasketAction $addBasketAction,
         GetBasketAction $getBasketAction,
         GetBasketListAction $getBasketListAction,
         RemoveBasketAction $removeBasketAction,
-        RenameBasketAction $renameBasketAction
+        RenameBasketAction $renameBasketAction,
+        BasketPresenter $basketPresenter
     )
     {
         $this->addBasketAction = $addBasketAction;
@@ -38,8 +42,16 @@ class BasketController extends ApiController
         $this->getBasketListAction = $getBasketListAction;
         $this->removeBasketAction = $removeBasketAction;
         $this->renameBasketAction = $renameBasketAction;
+        $this->basketPresenter = $basketPresenter;
     }
 
+    /**
+     * @Route(
+     *     "/baskets",
+     *     name="add_basket",
+     *     methods={"POST"}
+     * )
+     */
     public function addBasket(Request $request)
     {
         try {
@@ -47,31 +59,48 @@ class BasketController extends ApiController
             $name = $requestParams->name;
             $maxCapacity = $requestParams->maxCapacity;
 
-            $this->addBasketAction->execute(
+            $basketResponse = $this->addBasketAction->execute(
                 new AddBasketRequest($name, $maxCapacity)
             );
 
-            return $this->emptyResponse(Response::HTTP_CREATED);
+            return $this->successResponse(
+                $this->basketPresenter->presentBasket($basketResponse->basket()),
+                Response::HTTP_CREATED
+            );
         } catch (DomainException $e) {
-            return $this->errorResponse($e->getMessage());
+            return $this->errorResponse($e->getMessage(), $e->getCode());
         }
     }
 
-    public function getBasket(Request $request)
+    /**
+     * @Route(
+     *     "/baskets/{id}",
+     *     name="get_basket",
+     *     methods={"GET"}
+     * )
+     */
+    public function getBasket(string $id)
     {
         try {
-            $id = $request->get('id');
-
-            $getBasketResponse = $this->getBasketAction->execute(
+            $basketResponse = $this->getBasketAction->execute(
                 new GetBasketRequest($id)
             );
 
-            return $this->successResponse(['test' => 'Y']);
+            return $this->successResponse(
+                $this->basketPresenter->presentBasket($basketResponse->basket())
+            );
         } catch (DomainException $e) {
-            return $this->errorResponse($e->getMessage());
+            return $this->errorResponse($e->getMessage(), $e->getCode());
         }
     }
 
+    /**
+     * @Route(
+     *     "/baskets",
+     *     name="get_baskets",
+     *     methods={"GET"},
+     * )
+     */
     public function getBasketList()
     {
         try {
@@ -79,42 +108,57 @@ class BasketController extends ApiController
                 new GetBasketListRequest
             );
 
-            return $this->successResponse(['test' => 'Y']);
+            return $this->successResponse(
+                $this->basketPresenter->presentBasketList($getBasketListResponse->basketList())
+            );
         } catch (DomainException $e) {
-            return $this->errorResponse($e->getMessage());
+            return $this->errorResponse($e->getMessage(), $e->getCode());
         }
     }
 
-    public function removeBasket(Request $request)
+    /**
+     * @Route(
+     *     "/baskets/{id}",
+     *     name="remove_basket",
+     *     methods={"DELETE"}
+     * )
+     */
+    public function removeBasket(string $id)
     {
         try {
-            $requestParams = json_decode($request->getContent());
-            $id = $requestParams->id;
-
             $this->removeBasketAction->execute(
                 new RemoveBasketRequest($id)
             );
 
             return $this->emptyResponse(Response::HTTP_NO_CONTENT);
         } catch (DomainException $e) {
-            return $this->errorResponse($e->getMessage());
+            return $this->errorResponse($e->getMessage(), $e->getCode());
         }
     }
 
-    public function renameBasket(Request $request)
+    /**
+     * @Route(
+     *     "/baskets/{id}/rename",
+     *     name="rename_basket",
+     *     methods={"POST"}
+     * )
+     */
+    public function renameBasket(Request $request, string $id)
     {
         try {
             $requestParams = json_decode($request->getContent());
-            $id = $requestParams->id;
+
             $name = $requestParams->name;
 
-            $this->renameBasketAction->execute(
+            $basketResponse = $this->renameBasketAction->execute(
                 new RenameBasketRequest($id, $name)
             );
 
-            return $this->emptyResponse();
+            return $this->successResponse(
+                $this->basketPresenter->presentBasket($basketResponse->basket())
+            );
         } catch (DomainException $e) {
-            return $this->errorResponse($e->getMessage());
+            return $this->errorResponse($e->getMessage(), $e->getCode());
         }
     }
 }

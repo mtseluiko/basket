@@ -10,6 +10,7 @@ namespace App\Http\Controller\Api;
 
 
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 abstract class ApiController
 {
@@ -34,7 +35,7 @@ abstract class ApiController
         return new JsonResponse($errorData, $statusCode);
     }
 
-    protected function emptyResponse(int $statusCode = 200): JsonResponse
+    protected function emptyResponse(int $statusCode = Response::HTTP_OK): JsonResponse
     {
         return new JsonResponse(null, $statusCode);
     }

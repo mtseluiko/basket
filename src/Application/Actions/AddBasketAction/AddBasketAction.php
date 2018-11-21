@@ -22,7 +22,7 @@ class AddBasketAction
         $this->basketRepository = $basketRepository;
     }
 
-    public function execute(AddBasketRequest $basketRequest): RemoveBasketResponse
+    public function execute(AddBasketRequest $basketRequest): AddBasketResponse
     {
         $basketId = BasketId::generate();
         $basketName = $basketRequest->name();
@@ -32,7 +32,7 @@ class AddBasketAction
 
         $this->basketRepository->store($basket);
 
-        return new RemoveBasketResponse($basket);
+        return new AddBasketResponse($basket);
 
     }
 }
