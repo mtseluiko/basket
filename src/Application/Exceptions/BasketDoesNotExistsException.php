@@ -11,7 +11,7 @@ namespace App\Application\Exceptions;
 
 use Symfony\Component\HttpFoundation\Response;
 
-class BasketDoesNotExistsException extends \LogicException
+class BasketDoesNotExistsException extends \DomainException
 {
     private const ERROR_MSG = 'Basket does not exists';
 
