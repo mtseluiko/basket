@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d02b190-f72c-456c-b48f-5a0946ab3831" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3ad52fbd-fb14-4a14-91cf-0d8934af23e7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3ad52fbd-fb14-4a14-91cf-0d8934af23e7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction/AddItemsToBasketAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction/AddItemsToBasketAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction/AddItemsToBasketRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Actions/AddItemsToBasketAction/AddItemsToBasketRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Actions/GetBasketAction/GetBasketAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Actions/GetBasketAction/GetBasketAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Actions/RenameBasketAction/RenameBasketAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Actions/RenameBasketAction/RenameBasketAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Exceptions/BasketDoesNotExistsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Basket/Exceptions/BasketDoesNotExistsException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Basket/Basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Basket/Basket.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Basket/BasketId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Basket/BasketId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Http/Controller/Api/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Controller/Api/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketItemsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketItemsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Types/BasketContentsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Types/BasketContentsType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Basket/BasketIdTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domain/Basket/BasketIdTest.php" afterDir="false" />
-    </list>
+    <list default="true" id="2d02b190-f72c-456c-b48f-5a0946ab3831" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +70,7 @@
           <entry key="lock" value="3" />
           <entry key="php" value="337" />
           <entry key="sql" value="1" />
-          <entry key="yaml" value="28" />
+          <entry key="yaml" value="30" />
           <entry key="yml" value="13" />
         </counts>
       </usages-collector>
@@ -102,7 +83,7 @@
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="Scratch" value="1" />
           <entry key="XML" value="6" />
-          <entry key="YAML" value="41" />
+          <entry key="YAML" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -113,7 +94,7 @@
           <entry key="env" value="21" />
           <entry key="json" value="4" />
           <entry key="php" value="16187" />
-          <entry key="txt" value="173" />
+          <entry key="txt" value="239" />
           <entry key="yaml" value="360" />
           <entry key="yml" value="447" />
         </counts>
@@ -123,7 +104,7 @@
           <entry key=".env file" value="21" />
           <entry key="JSON" value="4" />
           <entry key="PHP" value="16187" />
-          <entry key="PLAIN_TEXT" value="380" />
+          <entry key="PLAIN_TEXT" value="446" />
           <entry key="Scratch" value="23" />
           <entry key="XML" value="34" />
           <entry key="YAML" value="807" />
@@ -159,7 +140,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketAction.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="528">
@@ -168,14 +149,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketRequest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+            <state relative-caret-position="814">
+              <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
               <folding>
                 <element signature="e#154#185#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/services.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="554">
+              <caret line="37" column="61" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -215,27 +214,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
               <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Http/Exceptions/RequestParsingException.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="1" selection-end-line="22" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Types/BasketContentsType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-              <folding>
-                <element signature="e#44#71#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -420,6 +398,29 @@
             <path>
               <item name="basket" type="b2602c69:ProjectViewProjectNode" />
               <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="doctrine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="basket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="basket" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -572,7 +573,7 @@
       <workItem from="1542612724214" duration="10337000" />
       <workItem from="1542627752235" duration="12219000" />
       <workItem from="1542702891719" duration="18607000" />
-      <workItem from="1542785718201" duration="18796000" />
+      <workItem from="1542785718201" duration="19133000" />
     </task>
     <task id="LOCAL-00001" summary="add models">
       <created>1542298421951</created>
@@ -658,11 +659,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542798243584</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add basketItemsController.Fix bug with saving contents">
+      <created>1542809406343</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1542809406344</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119854000" />
+    <option name="totallyTimeSpent" value="120191000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -677,7 +685,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26618704" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26618704" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -690,7 +698,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32972974" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32972974" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32972974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -715,7 +723,8 @@
     <MESSAGE value="add controllers" />
     <MESSAGE value="fix controllers and add presenters" />
     <MESSAGE value="small fix exception" />
-    <option name="LAST_COMMIT_MESSAGE" value="small fix exception" />
+    <MESSAGE value="add basketItemsController.Fix bug with saving contents" />
+    <option name="LAST_COMMIT_MESSAGE" value="add basketItemsController.Fix bug with saving contents" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketResponse.php">
@@ -851,13 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveBasketAction/RemoveBasketResponse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -910,13 +912,6 @@
           <folding>
             <element signature="e#120#178#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="37" column="61" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -1112,20 +1107,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+          <folding>
+            <element signature="e#154#185#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="554">
+          <caret line="37" column="61" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketAction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Actions/RemoveItemsFromBasketAction/RemoveItemsFromBasketRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-          <folding>
-            <element signature="e#154#185#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
