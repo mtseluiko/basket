@@ -32,9 +32,9 @@ class BasketItemsController extends ApiController
 
     /**
      * @Route(
-     *     "/baskets/{id}/add",
+     *     "/baskets/{id}/items",
      *     name="add_items_basket",
-     *     methods={"PUT"}
+     *     methods={"POST"}
      * )
      */
     public function addItemsToBasket(Request $request, string $id)
@@ -56,9 +56,9 @@ class BasketItemsController extends ApiController
 
     /**
      * @Route(
-     *     "/baskets/{id}/remove",
+     *     "/baskets/{id}/items",
      *     name="remove_items_basket",
-     *     methods={"PUT"}
+     *     methods={"DELETE"}
      * )
      */
     public function removeItemsFromBasket(Request $request, string $id)

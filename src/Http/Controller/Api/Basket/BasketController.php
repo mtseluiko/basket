@@ -13,6 +13,7 @@ use App\Application\Actions\RemoveBasketAction\RemoveBasketRequest;
 use App\Application\Actions\RenameBasketAction\RenameBasketAction;
 use App\Application\Actions\RenameBasketAction\RenameBasketRequest;
 use App\Http\Controller\Api\ApiController;
+use App\Http\Exceptions\ReadOnlyPropertyException;
 use App\Http\Exceptions\RequireAttributeException;
 use App\Infrastructure\UI\BasketPresenter;
 use DomainException;
@@ -145,7 +146,7 @@ class BasketController extends ApiController
 
     /**
      * @Route(
-     *     "/baskets/{id}/rename",
+     *     "/baskets/{id}",
      *     name="rename_basket",
      *     methods={"PUT"}
      * )
@@ -157,6 +158,12 @@ class BasketController extends ApiController
 
             if($name === null) {
                 throw new RequireAttributeException('name');
+            }
+
+            $maxCapacity = $request->attributes->get('maxCapacity');
+
+            if($maxCapacity !== null) {
+                throw new ReadOnlyPropertyException('maxCapacity');
             }
 
             $basketResponse = $this->renameBasketAction->execute(
