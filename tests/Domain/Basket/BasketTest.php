@@ -21,173 +21,149 @@ use PHPUnit\Framework\TestCase;
 
 class BasketTest extends TestCase
 {
-    private $name;
-    private $maxCapacity;
+    /* @var $basket Basket */
+    private $basket;
+    private $weight;
+    private $basketName;
 
     protected function setUp()
     {
-        $this->name = new BasketName('test');
-        $this->maxCapacity = new Weight(10);
+        $this->basketName = 'test';
+        $this->weight = 10;
+        $this->basket = new Basket(
+            BasketId::generate(),
+            new BasketName($this->basketName),
+            new Weight($this->weight)
+        );
     }
 
     public function testRename()
     {
-        $basket = new Basket(
-            BasketId::generate(),
-            $this->name,
-            $this->maxCapacity
-        );
-
         $newNameRaw = 'test1';
         $newName = new BasketName($newNameRaw);
 
-        $basket->rename($newName);
+        $this->basket->rename($newName);
 
-        $this->assertEquals($newNameRaw, $basket->name()->name());
+        $this->assertEquals($newNameRaw, $this->basket->name()->name());
 
     }
 
-    public function testAddItem()
+    /**
+     * @dataProvider providerItems
+     */
+    public function testAddItem($item1Type, $item1Weight, $item2Type, $item2Weight)
     {
-        $basket = new Basket(
-            BasketId::generate(),
-            $this->name,
-            $this->maxCapacity
-        );
-
         $items = [];
-
-        $item1Type = 'apple';
-        $item1Weight = 5;
 
         $item1 = new Item(
             new ItemType($item1Type),
             new Weight($item1Weight)
         );
-        $items['apple'] = $item1;
+        $items[$item1Type] = $item1;
 
-        $basket->addItem($item1Type, $item1Weight);
-        $this->assertEquals(count($basket->contents()), 1);
-        $this->assertEquals($basket->contents(), $items);
-
-        $item2Type = 'orange';
-        $item2Weight = 1;
+        $this->basket->addItem($item1Type, $item1Weight);
+        $this->assertEquals(count($this->basket->contents()), 1);
+        $this->assertEquals($this->basket->contents(), $items);
 
         $item2 = new Item(
             new ItemType($item2Type),
             new Weight($item2Weight)
         );
-        $items['orange'] = $item2;
+        $items[$item2Type] = $item2;
 
-        $basket->addItem($item2Type, $item2Weight);
+        $this->basket->addItem($item2Type, $item2Weight);
 
-        $this->assertEquals(count($basket->contents()), 2);
-        $this->assertEquals($basket->contents(), $items);
+        $this->assertEquals(count($this->basket->contents()), 2);
+        $this->assertEquals($this->basket->contents(), $items);
 
         /* @var $basketItems Item[] */
-        $basketItems = $basket->contents();
+        $basketItems = $this->basket->contents();
         $this->assertEquals($basketItems[$item1Type]->weight()->weight(), $item1Weight);
         $this->assertEquals($basketItems[$item2Type]->weight()->weight(), $item2Weight);
     }
 
-    public function testAddSameItem()
+    /**
+     * @dataProvider providerItems
+     */
+    public function testAddSameItem($item1Type, $item1Weight, $item2Type, $item2Weight)
     {
-        $basket = new Basket(
-            BasketId::generate(),
-            $this->name,
-            $this->maxCapacity
-        );
-
         $items = [];
-
-        $item1Type = 'apple';
-        $item1Weight = 5;
 
         $item1 = new Item(
             new ItemType($item1Type),
             new Weight($item1Weight)
         );
-        $items['apple'] = $item1;
+        $items[$item1Type] = $item1;
 
-        $basket->addItem($item1Type, $item1Weight);
+        $this->basket->addItem($item1Type, $item1Weight);
 
-        $this->assertEquals(count($basket->contents()), 1);
-        $this->assertEquals($basket->contents(), $items);
+        $this->assertEquals(count($this->basket->contents()), 1);
+        $this->assertEquals($this->basket->contents(), $items);
 
-        $item2Weight = 1;
+        $this->basket->addItem($item1Type, $item2Weight);
 
-        $basket->addItem($item1Type, $item2Weight);
-
-        $this->assertEquals(count($basket->contents()), 1);
+        $this->assertEquals(count($this->basket->contents()), 1);
 
         /* @var $basketItems Item[] */
-        $basketItems = $basket->contents();
+        $basketItems = $this->basket->contents();
         $this->assertEquals(
             $basketItems[$item1Type]->weight()->weight(),
             $item1Weight + $item2Weight
         );
     }
 
-    public function testAddItemOverflow()
+    /**
+     * @dataProvider providerItems
+     */
+    public function testAddItemOverflow($item1Type)
     {
         $this->expectException(BasketOverflowException::class);
 
-        $basket = new Basket(
-            BasketId::generate(),
-            $this->name,
-            $this->maxCapacity
-        );
+        $item1Weight = $this->weight + 0.1;
 
-        $item1Type = 'apple';
-        $item1Weight = 10.1;
-
-        $basket->addItem($item1Type, $item1Weight);
+        $this->basket->addItem($item1Type, $item1Weight);
     }
 
-    public function testRemoveItem()
+    /**
+     * @dataProvider providerItems
+     */
+    public function testRemoveItem($item1Type, $item1Weight)
     {
-        $basket = new Basket(
-            BasketId::generate(),
-            $this->name,
-            $this->maxCapacity
-        );
+        $this->basket->addItem($item1Type, $item1Weight);
 
-        $item1Type = 'apple';
-        $item1Weight = 5;
+        $item2Weight = $item1Weight - 1;
 
-        $basket->addItem($item1Type, $item1Weight);
-
-        $item2Weight = 2;
-
-        $basket->removeItem($item1Type, $item2Weight);
+        $this->basket->removeItem($item1Type, $item2Weight);
 
         /* @var $basketItems Item[] */
-        $basketItems = $basket->contents();
+        $basketItems = $this->basket->contents();
         $this->assertEquals(
-            $basketItems['apple']->weight()->weight(),
+            $basketItems[$item1Type]->weight()->weight(),
             $item1Weight - $item2Weight
         );
     }
 
-
-    public function testCannotRemoveItemMoreThanExists()
+    /**
+     * @dataProvider providerItems
+     */
+    public function testCannotRemoveItemMoreThanExists($item1Type, $item1Weight)
     {
         $this->expectException(BasketContentsRemoveMoreItemsThanExistsException::class);
 
-        $basket = new Basket(
-            BasketId::generate(),
-            $this->name,
-            $this->maxCapacity
-        );
+        $item2Weight = $item1Weight + 1;
 
-        $item1Type = 'apple';
-        $item1Weight = 5;
+        $this->basket->addItem($item1Type, $item1Weight);
 
-        $basket->addItem($item1Type, $item1Weight);
+        $this->basket->removeItem($item1Type, $item2Weight);
+    }
 
-        $item2Type = 'apple';
-        $item2Weight = 6;
-
-        $basket->removeItem($item2Type, $item2Weight);
+    public function providerItems()
+    {
+        return [
+            ['apple', 5, 'orange', 3.25],
+            ['orange', 3.1, 'apple', 2],
+            ['watermelon', 1, 'apple', 1],
+            ['orange', 5, 'watermelon', 1]
+        ];
     }
 }
