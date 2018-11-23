@@ -6,7 +6,7 @@
  * Time: 16:24
  */
 
-namespace App\Tests\Domain\Basket;
+namespace App\Tests\Unit\Domain\Basket;
 
 
 use App\Domain\Basket\Exceptions\ItemIncorrectTypeException;

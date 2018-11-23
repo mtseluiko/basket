@@ -13,6 +13,7 @@ framework:
     #fragments: true
     php_errors:
         log: true
+    test: ~
 
     cache:
         # Put the unique name of your app here: the prefix seed

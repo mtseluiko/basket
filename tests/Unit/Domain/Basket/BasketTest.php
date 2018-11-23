@@ -6,7 +6,7 @@
  * Time: 15:34
  */
 
-namespace App\Tests\Domain\Basket;
+namespace App\Tests\Unit\Domain\Basket;
 
 
 use App\Domain\Basket\Basket;

@@ -6,7 +6,7 @@
  * Time: 11:02
  */
 
-namespace App\Tests\Domain\Basket;
+namespace App\Tests\Unit\Domain\Basket;
 
 
 use PHPUnit\Framework\TestCase;

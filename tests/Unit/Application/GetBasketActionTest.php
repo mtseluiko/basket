@@ -6,11 +6,11 @@
  * Time: 17:16
  */
 
-namespace App\Tests\Application;
+namespace App\Tests\Unit\Application;
 
 
-use App\Application\Actions\RemoveBasketAction\RemoveBasketAction;
-use App\Application\Actions\RemoveBasketAction\RemoveBasketRequest;
+use App\Application\Actions\GetBasketAction\GetBasketAction;
+use App\Application\Actions\GetBasketAction\GetBasketRequest;
 use App\Domain\Basket\Basket;
 use App\Domain\Basket\BasketId;
 use App\Domain\Basket\BasketName;
@@ -20,44 +20,35 @@ use App\Domain\Basket\Weight;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-class RemoveBasketActionTest extends TestCase
+class GetBasketActionTest extends TestCase
 {
     /** @var BasketRepositoryContract|MockObject */
     private $repositoryMock;
 
-    private $name;
-    private $maxCapacity;
-    private $basket;
-
     public function setUp()
     {
-        $this->name = 'test';
-        $this->maxCapacity = 100;
-        $this->basket = new Basket(
-            BasketId::generate(),
-            new BasketName($this->name),
-            new Weight($this->maxCapacity)
-        );
-
         $this->repositoryMock = $this->getMockBuilder(BasketRepositoryContract::class)
             ->getMock();
     }
 
-    public function testExecuteCallsRepositoryGetRemove()
+    public function testExecuteCallsRepositoryGet()
     {
+        $basket = new Basket(
+            BasketId::generate(),
+            new BasketName('test'),
+            new Weight(1)
+        );
+
         $this->repositoryMock
             ->method('get')
-            ->willReturn(
-                $this->basket
-            );
-        $action = new RemoveBasketAction($this->repositoryMock);
+            ->willReturn($basket);
+
+        $action = new GetBasketAction($this->repositoryMock);
 
         $this->repositoryMock->expects($this->once())
             ->method('get');
-        $this->repositoryMock->expects($this->once())
-            ->method('remove');
 
-        $request = new RemoveBasketRequest(BasketId::generate());
+        $request = new GetBasketRequest(BasketId::generate());
         $action->execute($request);
     }
 
@@ -68,9 +59,10 @@ class RemoveBasketActionTest extends TestCase
         $this->repositoryMock
             ->method('get')
             ->willReturn(null);
-        $action = new RemoveBasketAction($this->repositoryMock);
 
-        $request = new RemoveBasketRequest(BasketId::generate());
+        $action = new GetBasketAction($this->repositoryMock);
+
+        $request = new GetBasketRequest(BasketId::generate());
         $action->execute($request);
     }
 }

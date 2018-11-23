@@ -6,7 +6,7 @@
  * Time: 17:16
  */
 
-namespace App\Tests\Application;
+namespace App\Tests\Unit\Application;
 
 
 use App\Application\Actions\RemoveItemsFromBasketAction\RemoveItemsFromBasketAction;
@@ -122,7 +122,7 @@ class RemoveItemsFromBasketActionTest extends TestCase
         foreach ($basket->contents() as $item) {
             /* @var $item Item */
             $type = $item->type()->typeName();
-            if(!isset($itemsByType[$type])) {
+            if (!isset($itemsByType[$type])) {
                 continue;
             }
             $this->assertEquals(
@@ -181,7 +181,8 @@ class RemoveItemsFromBasketActionTest extends TestCase
         return $items;
     }
 
-    private function fillBasket() {
+    private function fillBasket()
+    {
         $this->basketWithItems->addItem('apple', $this->startQuantityOfEachItem);
         $this->basketWithItems->addItem('watermelon', $this->startQuantityOfEachItem);
         $this->basketWithItems->addItem('orange', $this->startQuantityOfEachItem);

@@ -36,3 +36,7 @@ services:
   App\Http\Listeners\JsonRequestListener:
     tags:
     - { name: kernel.event_listener, event: kernel.controller }
+
+  App\Tests\Feature\Fixtures\:
+    resource: '../tests/Feature/Fixtures'
+    tags: ['doctrine.fixture.orm']

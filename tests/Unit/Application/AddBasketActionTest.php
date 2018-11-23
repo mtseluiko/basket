@@ -6,7 +6,7 @@
  * Time: 17:16
  */
 
-namespace App\Tests\Application;
+namespace App\Tests\Unit\Application;
 
 
 use App\Application\Actions\AddBasketAction\AddBasketAction;
