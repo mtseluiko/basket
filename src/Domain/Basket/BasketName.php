@@ -12,7 +12,7 @@ namespace App\Domain\Basket;
 use App\Domain\Basket\Exceptions\BasketEmptyNameException;
 use App\Domain\Basket\Exceptions\BasketNameIncorrectLengthException;
 
-class BasketName
+final class BasketName
 {
     const BASKET_NAME_MIN_LENGTH = 3;
     const BASKET_NAME_MAX_LENGTH = 40;

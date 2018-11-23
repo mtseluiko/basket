@@ -11,7 +11,7 @@ namespace App\Domain\Basket;
 
 use App\Domain\Basket\Exceptions\NegativeWeightException;
 
-class Weight
+final class Weight
 {
     const EPSILON = 0.001; //float calculation precision
 

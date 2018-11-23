@@ -11,7 +11,7 @@ namespace App\Domain\Basket;
 
 use App\Domain\Basket\Exceptions\ItemIncorrectTypeException;
 
-class ItemType
+final class ItemType
 {
     private $typeName;
 

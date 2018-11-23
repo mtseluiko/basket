@@ -14,7 +14,7 @@ use Ramsey\Uuid\Exception\InvalidUuidStringException;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
-class BasketId
+final class BasketId
 {
     protected $id;
 

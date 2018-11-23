@@ -9,7 +9,7 @@
 namespace App\Domain\Basket;
 
 
-class Item
+final class Item
 {
     private $type;
     private $weight;
