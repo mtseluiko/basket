@@ -24,12 +24,10 @@ class ApiTestCase extends WebTestCase
 
     public static function setUpBeforeClass()
     {
-        self::bootKernel();
-        self::$entityManager = self::$kernel->getContainer()->get('doctrine.orm.entity_manager');
-
         self::$client = static::createClient([
             'environment' => 'test'
         ]);
+        self::$entityManager = self::$client->getContainer()->get('doctrine.orm.entity_manager');
     }
 
     protected function assertJsonResponse(Response $response)
