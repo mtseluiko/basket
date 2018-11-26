@@ -37,6 +37,6 @@ services:
     tags:
     - { name: kernel.event_listener, event: kernel.controller }
 
-  App\Tests\Feature\Fixtures\:
-    resource: '../tests/Feature/Fixtures'
+  App\Tests\Feature\TestFixtures\:
+    resource: '../tests/Feature/TestFixtures'
     tags: ['doctrine.fixture.orm']
