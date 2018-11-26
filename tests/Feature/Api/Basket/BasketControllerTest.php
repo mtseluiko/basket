@@ -26,8 +26,8 @@ class BasketControllerTest extends ApiTestCase
     public function testGetBaskets()
     {
         $url = $this->endpoint;
-        self::$client->request('GET', $url);
-        $response = self::$client->getResponse();
+        $this->client->request('GET', $url);
+        $response = $this->client->getResponse();
 
         $this->assertSuccessResponse($response);
         $this->assertJsonResponse($response);
@@ -52,8 +52,8 @@ class BasketControllerTest extends ApiTestCase
     public function testGetBasket($basketId)
     {
         $url = $this->endpoint."/$basketId";
-        self::$client->request('GET', $url);
-        $response = self::$client->getResponse();
+        $this->client->request('GET', $url);
+        $response = $this->client->getResponse();
 
         $this->assertSuccessResponse($response);
         $this->assertJsonResponse($response);
@@ -67,17 +67,28 @@ class BasketControllerTest extends ApiTestCase
         $this->assertArrayHasKey('name', $basketData);
         $this->assertArrayHasKey('maxCapacity', $basketData);
         $this->assertArrayHasKey('contents', $basketData);
+
+        /** @var $dbBasket Basket */
+        $dbBasket = $this->entityManager->find(
+            Basket::class,
+            BasketId::fromString($basketId)
+        );
+
+        $this->assertEquals($dbBasket->id()->id(), $basketId);
+        $this->assertEquals($dbBasket->name()->name(), $basketData['name']);
+        $this->assertEquals($dbBasket->maxCapacity()->weight(), $basketData['maxCapacity']);
     }
 
     /**
+     * @dataProvider incorrectNamesProvider
      * @depends testGetBaskets
+     * Name can't be less @see BasketName::BASKET_NAME_MIN_LENGTH
+     * and bigger than @see BasketName::BASKET_NAME_MAX_LENGTH symbols .
      */
-    public function testRenameBasket($basketId)
+    public function testRenameBasketIncorrectName($newName, $basketId)
     {
-        $newName = 'new test name';
-
         $url = $this->endpoint."/$basketId";
-        self::$client->request(
+        $this->client->request(
             'PUT',
             $url,
             [],
@@ -85,7 +96,68 @@ class BasketControllerTest extends ApiTestCase
             ['CONTENT_TYPE' => 'application/json'],
             json_encode(['name'=>$newName])
         );
-        $response = self::$client->getResponse();
+        $response = $this->client->getResponse();
+
+        $this->assertSuccessResponse($response, 400);
+        $this->assertJsonResponse($response);
+
+        /** @var $dbBasket Basket */
+        $dbBasket = $this->entityManager->find(
+            Basket::class,
+            BasketId::fromString($basketId)
+        );
+
+        $this->assertNotEquals($dbBasket->name()->name(), $newName);
+    }
+
+
+    /**
+     * @dataProvider correctNamesProvider
+     * @depends testGetBaskets
+     * Name can't be less @see BasketName::BASKET_NAME_MIN_LENGTH
+     * and bigger than @see BasketName::BASKET_NAME_MAX_LENGTH symbols .
+     */
+    public function testRenameCannotChangeCapacity($newName, $basketId)
+    {
+        $url = $this->endpoint."/$basketId";
+        $this->client->request(
+            'PUT',
+            $url,
+            [],
+            [],
+            ['CONTENT_TYPE' => 'application/json'],
+            json_encode(['name'=>$newName, 'maxCapacity'=>50])
+        );
+        $response = $this->client->getResponse();
+
+        $this->assertSuccessResponse($response, 400);
+        $this->assertJsonResponse($response);
+
+        /** @var $dbBasket Basket */
+        $dbBasket = $this->entityManager->find(
+            Basket::class,
+            BasketId::fromString($basketId)
+        );
+
+        $this->assertNotEquals($dbBasket->name()->name(), $newName);
+    }
+
+    /**
+     * @dataProvider correctNamesProvider
+     * @depends testGetBaskets
+     */
+    public function testRenameBasket($newName, $basketId)
+    {
+        $url = $this->endpoint."/$basketId";
+        $this->client->request(
+            'PUT',
+            $url,
+            [],
+            [],
+            ['CONTENT_TYPE' => 'application/json'],
+            json_encode(['name'=>$newName])
+        );
+        $response = $this->client->getResponse();
 
         $this->assertSuccessResponse($response);
         $this->assertJsonResponse($response);
@@ -100,47 +172,23 @@ class BasketControllerTest extends ApiTestCase
 
         $this->assertEquals($basketData['id'], $basketId);
         $this->assertEquals($basketData['name'], $newName);
-
         /** @var $dbBasket Basket */
-        $dbBasket = self::$entityManager->find(
+        $dbBasket = $this->entityManager->find(
             Basket::class,
             BasketId::fromString($basketId)
         );
-
         $this->assertEquals($dbBasket->id()->id(), $basketId);
         $this->assertEquals($dbBasket->name()->name(), $newName);
-
     }
 
-    /**
-     * @dataProvider incorrectNamesProvider
-     * @depends testGetBaskets
-     * Name can't be less @see BasketName::BASKET_NAME_MIN_LENGTH
-     * and bigger than @see BasketName::BASKET_NAME_MAX_LENGTH symbols .
-     */
-    public function testRenameBasketIncorrectName($newName, $basketId)
+    public function correctNamesProvider(): array
     {
-        $url = $this->endpoint."/$basketId";
-        self::$client->request(
-            'PUT',
-            $url,
-            [],
-            [],
-            ['CONTENT_TYPE' => 'application/json'],
-            json_encode(['name'=>$newName])
-        );
-        $response = self::$client->getResponse();
-
-        $this->assertSuccessResponse($response, 400);
-        $this->assertJsonResponse($response);
-
-        /** @var $dbBasket Basket */
-        $dbBasket = self::$entityManager->find(
-            Basket::class,
-            BasketId::fromString($basketId)
-        );
-
-        $this->assertNotEquals($dbBasket->name()->name(), $newName);
+        return [
+            ['testtest'],
+            ['New test name'],
+            ['тест'],
+            ['12345']
+        ];
     }
 
     public function incorrectNamesProvider(): array

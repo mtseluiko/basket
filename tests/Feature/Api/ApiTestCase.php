@@ -11,23 +11,22 @@ namespace App\Tests\Feature\Api;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Response;
 
 class ApiTestCase extends WebTestCase
 {
     /** @var Client */
-    protected static $client;
+    protected $client;
 
     /** @var EntityManager */
-    protected static $entityManager;
+    protected $entityManager;
 
-    public static function setUpBeforeClass()
+    public function setUp()
     {
-        self::$client = static::createClient([
+        $this->client = static::createClient([
             'environment' => 'test'
         ]);
-        self::$entityManager = self::$client->getContainer()->get('doctrine.orm.entity_manager');
+        $this->entityManager = $this->client->getContainer()->get('doctrine.orm.entity_manager');
     }
 
     protected function assertJsonResponse(Response $response)
