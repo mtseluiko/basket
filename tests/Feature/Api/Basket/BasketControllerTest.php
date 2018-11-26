@@ -11,6 +11,7 @@ namespace App\Tests\Feature\Api\Basket;
 use App\Domain\Basket\Basket;
 use App\Domain\Basket\BasketId;
 use App\Tests\Feature\Api\ApiTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 class BasketControllerTest extends ApiTestCase
 {
@@ -166,12 +167,8 @@ class BasketControllerTest extends ApiTestCase
         $basketRaw = $response->getContent();
         $basket = json_decode($basketRaw, true);
 
-        $this->assertTrue(isset($basket['data']));
-
-        $basketData = $basket['data'];
-
-        $this->assertEquals($basketData['id'], $basketId);
-        $this->assertEquals($basketData['name'], $newName);
+        $this->assertEquals($basket['data']['id'], $basketId);
+        $this->assertEquals($basket['data']['name'], $newName);
         /** @var $dbBasket Basket */
         $dbBasket = $this->entityManager->find(
             Basket::class,
@@ -179,6 +176,46 @@ class BasketControllerTest extends ApiTestCase
         );
         $this->assertEquals($dbBasket->id()->id(), $basketId);
         $this->assertEquals($dbBasket->name()->name(), $newName);
+    }
+
+    /**
+     * @depends testGetBaskets
+     */
+    public function testRemoveBasket($basketId)
+    {
+        $url = $this->endpoint."/$basketId";
+        $this->client->request(
+            'DELETE',
+            $url
+        );
+        $response = $this->client->getResponse();
+
+        $this->assertSuccessResponse($response, Response::HTTP_NO_CONTENT);
+
+        /** @var $dbBasket Basket */
+        $dbBasket = $this->entityManager->find(
+            Basket::class,
+            BasketId::fromString($basketId)
+        );
+        $this->assertEquals($dbBasket, null);
+
+        return $basketId;
+    }
+
+    /**
+     * @depends testRemoveBasket
+     */
+    public function testGetBasketNotFound($basketId)
+    {
+        $url = $this->endpoint."/$basketId";
+        $this->client->request(
+            'GET',
+            $url
+        );
+        $response = $this->client->getResponse();
+
+        $this->assertSuccessResponse($response, Response::HTTP_NOT_FOUND);
+        $this->assertJsonResponse($response);
     }
 
     public function correctNamesProvider(): array

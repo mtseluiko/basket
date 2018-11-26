@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2d02b190-f72c-456c-b48f-5a0946ab3831" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Api/ApiTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Api/ApiTestCase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/Api/Basket/BasketControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Api/Basket/BasketControllerTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -124,9 +122,9 @@
           <entry key="dummy" value="240" />
           <entry key="env" value="71" />
           <entry key="json" value="4" />
-          <entry key="php" value="23696" />
+          <entry key="php" value="23791" />
           <entry key="test" value="53" />
-          <entry key="txt" value="365" />
+          <entry key="txt" value="381" />
           <entry key="yaml" value="435" />
           <entry key="yml" value="447" />
         </counts>
@@ -135,8 +133,8 @@
         <counts>
           <entry key=".env file" value="124" />
           <entry key="JSON" value="4" />
-          <entry key="PHP" value="23696" />
-          <entry key="PLAIN_TEXT" value="605" />
+          <entry key="PHP" value="23791" />
+          <entry key="PLAIN_TEXT" value="621" />
           <entry key="Scratch" value="27" />
           <entry key="XML" value="97" />
           <entry key="YAML" value="882" />
@@ -154,8 +152,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/Feature/Api/Basket/BasketControllerTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="180" column="65" selection-start-line="180" selection-start-column="65" selection-end-line="180" selection-end-column="65" />
+            <state relative-caret-position="340">
+              <caret line="192" column="75" selection-start-line="192" selection-start-column="75" selection-end-line="192" selection-end-column="75" />
               <folding>
                 <element signature="e#130#159#0#PHP" expanded="true" />
               </folding>
@@ -741,7 +739,7 @@
       <workItem from="1542785718201" duration="21343000" />
       <workItem from="1542872384909" duration="16538000" />
       <workItem from="1542959086181" duration="24484000" />
-      <workItem from="1543216607162" duration="5573000" />
+      <workItem from="1543216607162" duration="5936000" />
     </task>
     <task id="LOCAL-00001" summary="add models">
       <created>1542298421951</created>
@@ -869,11 +867,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542962912610</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix rename tests">
+      <created>1543222718992</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1543222718992</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168996000" />
+    <option name="totallyTimeSpent" value="169359000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -930,7 +935,8 @@
     <MESSAGE value="fix routing" />
     <MESSAGE value="add tests for add and remove items actions" />
     <MESSAGE value="make VO classes final" />
-    <option name="LAST_COMMIT_MESSAGE" value="make VO classes final" />
+    <MESSAGE value="fix rename tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix rename tests" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Http/Controller/Api/Basket/BasketController.php">
@@ -1253,8 +1259,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Feature/Api/Basket/BasketControllerTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="180" column="65" selection-start-line="180" selection-start-column="65" selection-end-line="180" selection-end-column="65" />
+        <state relative-caret-position="340">
+          <caret line="192" column="75" selection-start-line="192" selection-start-column="75" selection-end-line="192" selection-end-column="75" />
           <folding>
             <element signature="e#130#159#0#PHP" expanded="true" />
           </folding>
