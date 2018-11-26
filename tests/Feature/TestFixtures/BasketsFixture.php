@@ -6,7 +6,7 @@
  * Time: 14:31
  */
 
-namespace App\Tests\Feature\Fixtures;
+namespace App\Tests\Feature\TestFixtures;
 
 
 use App\Domain\Basket\Basket;
