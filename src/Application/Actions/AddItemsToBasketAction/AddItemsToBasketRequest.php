@@ -10,6 +10,7 @@ namespace App\Application\Actions\AddItemsToBasketAction;
 
 
 use App\Domain\Basket\BasketId;
+use App\Http\Exceptions\RequireAttributeException;
 
 class AddItemsToBasketRequest
 {
@@ -18,10 +19,18 @@ class AddItemsToBasketRequest
 
     public function __construct(string $basketId, array $itemsRaw)
     {
+
         $this->basketId = BasketId::fromString($basketId);
 
         $items = [];
         foreach($itemsRaw as $rawItem) {
+            if(!isset($rawItem['type'])) {
+                throw new RequireAttributeException('type');
+            }
+            if(!isset($rawItem['weight'])) {
+                throw new RequireAttributeException('weight');
+            }
+
             $items[] = new ItemRequestDto(
                 $rawItem['type'],
                 $rawItem['weight']

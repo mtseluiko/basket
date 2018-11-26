@@ -6,11 +6,10 @@
  * Time: 11:16
  */
 
-namespace App\Tests\Feature\Api\Basket;
+namespace App\Tests\Feature\Api;
 
 use App\Domain\Basket\Basket;
 use App\Domain\Basket\BasketId;
-use App\Tests\Feature\Api\ApiTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
 class BasketControllerTest extends ApiTestCase
@@ -19,7 +18,7 @@ class BasketControllerTest extends ApiTestCase
 
     public function __construct(?string $name = null, array $data = [], string $dataName = '')
     {
-        $this->endpoint = getenv('BASE_URL').'/baskets';
+        $this->endpoint = getenv('BASE_URL') . '/baskets';
 
         parent::__construct($name, $data, $dataName);
     }
@@ -52,7 +51,7 @@ class BasketControllerTest extends ApiTestCase
      */
     public function testGetBasket($basketId)
     {
-        $url = $this->endpoint."/$basketId";
+        $url = $this->endpoint . "/$basketId";
         $this->client->request('GET', $url);
         $response = $this->client->getResponse();
 
@@ -82,20 +81,20 @@ class BasketControllerTest extends ApiTestCase
 
     /**
      * @dataProvider incorrectNamesProvider
-     * @depends testGetBaskets
+     * @depends      testGetBaskets
      * Name can't be less @see BasketName::BASKET_NAME_MIN_LENGTH
      * and bigger than @see BasketName::BASKET_NAME_MAX_LENGTH symbols .
      */
     public function testRenameBasketIncorrectName($newName, $basketId)
     {
-        $url = $this->endpoint."/$basketId";
+        $url = $this->endpoint . "/$basketId";
         $this->client->request(
             'PUT',
             $url,
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],
-            json_encode(['name'=>$newName])
+            json_encode(['name' => $newName])
         );
         $response = $this->client->getResponse();
 
@@ -114,20 +113,20 @@ class BasketControllerTest extends ApiTestCase
 
     /**
      * @dataProvider correctNamesProvider
-     * @depends testGetBaskets
+     * @depends      testGetBaskets
      * Name can't be less @see BasketName::BASKET_NAME_MIN_LENGTH
      * and bigger than @see BasketName::BASKET_NAME_MAX_LENGTH symbols .
      */
     public function testRenameCannotChangeCapacity($newName, $basketId)
     {
-        $url = $this->endpoint."/$basketId";
+        $url = $this->endpoint . "/$basketId";
         $this->client->request(
             'PUT',
             $url,
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],
-            json_encode(['name'=>$newName, 'maxCapacity'=>50])
+            json_encode(['name' => $newName, 'maxCapacity' => 50])
         );
         $response = $this->client->getResponse();
 
@@ -145,24 +144,23 @@ class BasketControllerTest extends ApiTestCase
 
     /**
      * @dataProvider correctNamesProvider
-     * @depends testGetBaskets
+     * @depends      testGetBaskets
      */
     public function testRenameBasket($newName, $basketId)
     {
-        $url = $this->endpoint."/$basketId";
+        $url = $this->endpoint . "/$basketId";
         $this->client->request(
             'PUT',
             $url,
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],
-            json_encode(['name'=>$newName])
+            json_encode(['name' => $newName])
         );
         $response = $this->client->getResponse();
 
         $this->assertSuccessResponse($response);
         $this->assertJsonResponse($response);
-
 
         $basketRaw = $response->getContent();
         $basket = json_decode($basketRaw, true);
@@ -183,7 +181,7 @@ class BasketControllerTest extends ApiTestCase
      */
     public function testRemoveBasket($basketId)
     {
-        $url = $this->endpoint."/$basketId";
+        $url = $this->endpoint . "/$basketId";
         $this->client->request(
             'DELETE',
             $url
@@ -207,7 +205,7 @@ class BasketControllerTest extends ApiTestCase
      */
     public function testGetBasketNotFound($basketId)
     {
-        $url = $this->endpoint."/$basketId";
+        $url = $this->endpoint . "/$basketId";
         $this->client->request(
             'GET',
             $url
@@ -216,6 +214,54 @@ class BasketControllerTest extends ApiTestCase
 
         $this->assertSuccessResponse($response, Response::HTTP_NOT_FOUND);
         $this->assertJsonResponse($response);
+    }
+
+    /**
+     * @dataProvider basketProvider
+     */
+    public function testAddBasket($name, $capacity)
+    {
+        $url = $this->endpoint;
+        $this->client->request(
+            'POST',
+            $url,
+            [],
+            [],
+            ['CONTENT_TYPE' => 'application/json'],
+            json_encode([
+                'name' => $name,
+                'maxCapacity' => $capacity,
+            ])
+        );
+        $response = $this->client->getResponse();
+
+        $this->assertSuccessResponse($response, Response::HTTP_CREATED);
+        $this->assertJsonResponse($response);
+
+        $basketRaw = $response->getContent();
+        $basket = json_decode($basketRaw, true);
+
+        $basketId = $basket['data']['id'];
+        $this->assertEquals($basket['data']['name'], $name);
+        $this->assertEquals($basket['data']['maxCapacity'], $capacity);
+
+        /** @var $dbBasket Basket */
+        $dbBasket = $this->entityManager->find(
+            Basket::class,
+            BasketId::fromString($basketId)
+        );
+        $this->assertEquals($dbBasket->name()->name(), $name);
+        $this->assertEquals($dbBasket->maxCapacity()->weight(), $capacity);
+    }
+
+    public function basketProvider(): array
+    {
+        return [
+            ['testtest', 100],
+            ['New test name', 150],
+            ['тест', 230.56],
+            ['12345', 110]
+        ];
     }
 
     public function correctNamesProvider(): array
@@ -231,9 +277,9 @@ class BasketControllerTest extends ApiTestCase
     public function incorrectNamesProvider(): array
     {
         return [
-          [''],
-          ['aa'],
-          ['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'],
+            [''],
+            ['aa'],
+            ['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'],
         ];
     }
 }

@@ -48,15 +48,23 @@ class BasketContentsType extends Type
 
     public function convertToDatabaseValue($items, AbstractPlatform $platform)
     {
+        $resultItems = [];
         foreach ($items as $item) {
             /* @var $item Item */
-            $items[] = [
-                'type' => $item->type()->typeName(),
-                'weight' => $item->weight()->weight()
+            $type = $item->type()->typeName();
+            $weight = $item->weight()->weight();
+
+            if(isset($resultItems[$type])) {
+                $weight = $resultItems[$type]['weight'] += $weight;
+            }
+
+            $resultItems[$item->type()->typeName()] = [
+                'type' => $type,
+                'weight' => $weight
             ];
         }
 
-        return json_encode($items);
+        return json_encode($resultItems);
     }
 
     public function getName()

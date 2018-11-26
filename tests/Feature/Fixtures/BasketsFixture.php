@@ -25,7 +25,7 @@ class BasketsFixture implements FixtureInterface
             $product = new Basket(
                 BasketId::generate(),
                 new BasketName('test'),
-                new Weight(100)
+                new Weight(10000)
             );
             $manager->persist($product);
         }
