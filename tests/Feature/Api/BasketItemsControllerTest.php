@@ -9,6 +9,9 @@
 namespace App\Tests\Feature\Api;
 
 use App\Domain\Basket\Basket;
+use App\Domain\Basket\BasketId;
+use App\Domain\Basket\BasketName;
+use App\Domain\Basket\Weight;
 
 class BasketItemsControllerTest extends ApiTestCase
 {
@@ -22,13 +25,11 @@ class BasketItemsControllerTest extends ApiTestCase
         parent::setUp();
 
         /** @var $basket Basket */
-        $basket = $this->entityManager
-                            ->getRepository(Basket::class)
-                            ->findOneBy([]);
-
-        $basket->removeAllItemsByType('apple');
-        $basket->removeAllItemsByType('orange');
-        $basket->removeAllItemsByType('watermelon');
+        $basket = new Basket(
+            BasketId::generate(),
+            new BasketName('test items'),
+            new Weight(100000)
+        );
 
         $basket->addItem('apple', 500);
         $basket->addItem('orange', 500);
