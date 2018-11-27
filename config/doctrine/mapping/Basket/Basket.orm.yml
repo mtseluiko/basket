@@ -6,10 +6,7 @@ App\Domain\Basket\Basket:
     id:
       type: basket_id
       generator:
-        strategy: CUSTOM
-      customIdGenerator:
-        class: App\Infrastructure\BasketIdGenerator
-
+        strategy: NONE
   embedded:
     name:
       class: App\Domain\Basket\BasketName
