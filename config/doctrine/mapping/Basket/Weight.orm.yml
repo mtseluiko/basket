@@ -4,3 +4,4 @@ App\Domain\Basket\Weight:
     weight:
       type: string
       nullable: false
+      column: max_capacity
