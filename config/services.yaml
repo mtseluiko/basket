@@ -30,7 +30,7 @@ services:
   # please note that last definitions always *replace* previous ones
 
   App\Domain\Basket\BasketRepositoryContract:
-    class: App\Infrastructure\DoctrineBasketMongoRepository
+    class: App\Infrastructure\Persistence\MongoDBDoctrine\DoctrineBasketMongoRepository
     autowire: true
 
   App\Http\Listeners\JsonRequestListener:
