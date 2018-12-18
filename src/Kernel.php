@@ -27,6 +27,17 @@ class Kernel extends BaseKernel
         return $this->getProjectDir() . '/var/log';
     }
 
+    public function boot()
+    {
+        if(!Type::hasType('basket_id_mongo')){
+            Type::addType('basket_id_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketIdMongoType');
+            Type::addType('basket_name_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketNameMongoType');
+            Type::addType('basket_capacity_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketCapacityMongoType');
+            Type::addType('basket_contents_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketContentsMongoType');
+        }
+        return parent::boot();
+    }
+
     public function registerBundles()
     {
         $contents = require $this->getProjectDir() . '/config/bundles.php';
@@ -50,13 +61,6 @@ class Kernel extends BaseKernel
         $loader->load($confDir . '/{packages}/' . $this->environment . '/**/*' . self::CONFIG_EXTS, 'glob');
         $loader->load($confDir . '/{services}' . self::CONFIG_EXTS, 'glob');
         $loader->load($confDir . '/{services}_' . $this->environment . self::CONFIG_EXTS, 'glob');
-
-        if(!Type::hasType('basket_id_mongo')){
-            Type::addType('basket_id_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketIdMongoType');
-            Type::addType('basket_name_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketNameMongoType');
-            Type::addType('basket_capacity_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketCapacityMongoType');
-            Type::addType('basket_contents_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketContentsMongoType');
-        }
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routes)
