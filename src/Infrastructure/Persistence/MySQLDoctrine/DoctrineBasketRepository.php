@@ -15,7 +15,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 class DoctrineBasketRepository extends ServiceEntityRepository
-//    implements BasketRepositoryContract
+    implements BasketRepositoryContract
 {
 
     public function __construct(ManagerRegistry $registry)
