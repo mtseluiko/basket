@@ -32,7 +32,9 @@ class Kernel extends BaseKernel
         Type::addType('basket_id_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketIdMongoType');
         Type::addType('basket_name_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketNameMongoType');
         Type::addType('basket_capacity_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketCapacityMongoType');
-        Type::addType('basket_contents_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketContentsMongoType');return parent::boot();
+        Type::addType('basket_contents_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketContentsMongoType');
+
+        return parent::boot();
     }
 
     public function registerBundles()
