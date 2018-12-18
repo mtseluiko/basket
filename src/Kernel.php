@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Doctrine\ODM\MongoDB\Types\Type;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
@@ -49,6 +50,13 @@ class Kernel extends BaseKernel
         $loader->load($confDir . '/{packages}/' . $this->environment . '/**/*' . self::CONFIG_EXTS, 'glob');
         $loader->load($confDir . '/{services}' . self::CONFIG_EXTS, 'glob');
         $loader->load($confDir . '/{services}_' . $this->environment . self::CONFIG_EXTS, 'glob');
+
+        if(!Type::hasType('basket_id_mongo')){
+            Type::addType('basket_id_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketIdMongoType');
+            Type::addType('basket_name_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketNameMongoType');
+            Type::addType('basket_capacity_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketCapacityMongoType');
+            Type::addType('basket_contents_mongo', '\App\Infrastructure\Persistence\MongoDBDoctrine\Types\BasketContentsMongoType');
+        }
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routes)
@@ -110,6 +118,7 @@ class Kernel extends BaseKernel
         $_SERVER['APP_ENV'] = $_ENV['APP_ENV'] = isset($_SERVER['APP_ENV']) ? $_SERVER['APP_ENV'] : 'dev';
         $_SERVER['APP_DEBUG'] = isset($_SERVER['APP_DEBUG']) ? $_SERVER['APP_DEBUG'] : (isset($_ENV['APP_DEBUG']) ? $_ENV['APP_DEBUG'] : 'prod' !== $_SERVER['APP_ENV']);
         $_SERVER['APP_DEBUG'] = $_ENV['APP_DEBUG'] = (int)$_SERVER['APP_DEBUG'] || filter_var($_SERVER['APP_DEBUG'], FILTER_VALIDATE_BOOLEAN) ? '1' : '0';
+
     }
 
     private static function loadEnv(Dotenv $dotenv, $path)

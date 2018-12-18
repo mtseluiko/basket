@@ -54,7 +54,6 @@ class BasketControllerTest extends ApiTestCase
         $url = $this->endpoint . "/$basketId";
         $this->client->request('GET', $url);
         $response = $this->client->getResponse();
-
         $this->assertSuccessResponse($response);
         $this->assertJsonResponse($response);
         $basketRaw = $response->getContent();

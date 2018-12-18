@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Infrastructure\Types;
+namespace App\Infrastructure\Persistence\MySQLDoctrine\Types;
 
 use App\Domain\Basket\Item;
-use App\Domain\Basket\ItemType;
-use App\Domain\Basket\Weight;
+use App\Infrastructure\Helpers\ItemsHelper;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 
@@ -19,8 +18,6 @@ class BasketContentsType extends Type
 
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        $basketContents = [];
-
         if ($value === null || $value === '') {
             return null;
         }
@@ -30,18 +27,7 @@ class BasketContentsType extends Type
         }
 
         $val = json_decode($value, true);
-
-        foreach ($val as $basketItem) {
-            if(count($basketItem) === 0) {
-                continue;
-            }
-            $item = new Item(
-                new ItemType($basketItem['type']),
-                new Weight($basketItem['weight'])
-            );
-
-            $basketContents[$basketItem['type']] = $item;
-        }
+        $basketContents = ItemsHelper::getItemsFromArray($val);
 
         return $basketContents;
     }

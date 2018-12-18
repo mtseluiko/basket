@@ -11,13 +11,20 @@ namespace App\Domain\Basket;
 
 use App\Domain\Basket\Exceptions\BasketContentsRemoveMoreItemsThanExistsException;
 use App\Domain\Basket\Exceptions\BasketOverflowException;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
-
+/**
+ * @MongoDB\Document(collection="baskets", repositoryClass="App\Infrastructure\Persistence\MongoDBDoctrine\DoctrineBasketMongoRepository")
+ */
 class Basket
 {
+    /** @MongoDB\Id(strategy="NONE", type="basket_id_mongo") */
     private $id;
+    /** @MongoDB\Field(type="basket_name_mongo") */
     private $name;
+    /** @MongoDB\Field(type="basket_capacity_mongo") */
     private $maxCapacity;
+    /** @MongoDB\Field(type="basket_contents_mongo") */
     private $contents;
 
     public function __construct(BasketId $id, BasketName $name, Weight $maxCapacity)
@@ -127,6 +134,27 @@ class Basket
         $currentItems = $this->contents();
         unset($currentItems[$itemTypeName]);
         $this->contents = $currentItems;
+    }
+
+    public function getContentsJson(): string
+    {
+        $resultItems = [];
+        foreach ($this->contents() as $item) {
+            /* @var $item Item */
+            $type = $item->type()->typeName();
+            $weight = $item->weight()->weight();
+
+            if(isset($resultItems[$type])) {
+                $weight = $resultItems[$type]['weight'] += $weight;
+            }
+
+            $resultItems[$item->type()->typeName()] = [
+                'type' => $type,
+                'weight' => $weight
+            ];
+        }
+
+        return json_encode($resultItems);
     }
 
 }

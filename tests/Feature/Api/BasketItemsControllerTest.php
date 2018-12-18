@@ -55,7 +55,6 @@ class BasketItemsControllerTest extends ApiTestCase
             json_encode(['items' => $items])
         );
         $response = $this->client->getResponse();
-        var_dump($response->getContent());
         $this->assertSuccessResponse($response);
         $this->assertJsonResponse($response);
 

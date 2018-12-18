@@ -12,8 +12,8 @@ doctrine:
         server_version: '5.7'
         charset: utf8mb4
         types:
-            basket_contents: App\Infrastructure\Types\BasketContentsType
-            basket_id: App\Infrastructure\Types\BasketIdType
+            basket_contents: App\Infrastructure\Persistence\MySQLDoctrine\Types\BasketContentsType
+            basket_id: App\Infrastructure\Persistence\MySQLDoctrine\Types\BasketIdType
         default_table_options:
             charset: utf8mb4
             collate: utf8mb4_unicode_ci

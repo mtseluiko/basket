@@ -6,19 +6,18 @@
  * Time: 10:10
  */
 
-namespace App\Infrastructure;
+namespace App\Infrastructure\Persistence\MongoDBDoctrine;
 
 
 use App\Domain\Basket\Basket;
 use App\Domain\Basket\BasketId;
 use App\Domain\Basket\BasketRepositoryContract;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Bundle\MongoDBBundle\ManagerRegistry;
+use Doctrine\Bundle\MongoDBBundle\Repository\ServiceDocumentRepository;
 
-class DoctrineBasketRepository extends ServiceEntityRepository
+class DoctrineBasketMongoRepository extends ServiceDocumentRepository
     implements BasketRepositoryContract
 {
-
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Basket::class);
@@ -36,14 +35,14 @@ class DoctrineBasketRepository extends ServiceEntityRepository
 
     public function store(Basket $basket): void
     {
-        $this->getEntityManager()->persist($basket);
-        $this->getEntityManager()->flush($basket);
+        $this->getDocumentManager()->persist($basket);
+        $this->getDocumentManager()->flush($basket);
     }
 
     public function remove(Basket $basket): void
     {
-        $this->getEntityManager()->remove($basket);
-        $this->getEntityManager()->flush();
+        $this->getDocumentManager()->remove($basket);
+        $this->getDocumentManager()->flush($basket);
     }
 
     public function getNextId(): BasketId

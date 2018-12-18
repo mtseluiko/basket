@@ -1,7 +1,7 @@
 App\Domain\Basket\Basket:
   type: entity
   table: baskets
-  repositoryClass: App\Infrastructure\DoctrineBasketRepository
+  repositoryClass: App\Infrastructure\Persistence\MongoDBDoctrine\DoctrineBasketRepository
   id:
     id:
       type: basket_id

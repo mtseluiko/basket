@@ -20,12 +20,12 @@ final class BasketId
 
     private function __construct(UuidInterface $uuid)
     {
-        $this->id = $uuid;
+        $this->id = $uuid->toString();
     }
 
     public function toString(): string
     {
-        return $this->id->toString();
+        return $this->id;
     }
 
     public function __toString(): string
